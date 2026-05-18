@@ -107,47 +107,45 @@
 
 ## Traceability
 
-*Populated during roadmap creation.*
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Pending |
 | FOUND-02 | Phase 1 | Pending |
 | FOUND-03 | Phase 1 | Pending |
 | FOUND-04 | Phase 1 | Pending |
-| VIS-01 | Phase 2 | Pending |
-| VIS-02 | Phase 2 | Pending |
-| VIS-03 | Phase 2 | Pending |
-| VIS-04 | Phase 2 | Pending |
-| VIS-05 | Phase 2 | Pending |
-| HOME-01 | Phase 3 | Pending |
-| HOME-02 | Phase 3 | Pending |
-| HOME-03 | Phase 3 | Pending |
-| HOME-04 | Phase 3 | Pending |
-| PLAYER-01 | Phase 3 | Pending |
-| PLAYER-02 | Phase 3 | Pending |
-| PLAYER-03 | Phase 3 | Pending |
-| PLAYER-04 | Phase 3 | Pending |
-| SECT-01 | Phase 3 | Pending |
-| SECT-02 | Phase 3 | Pending |
-| SECT-03 | Phase 3 | Pending |
-| MEDIA-01 | Phase 4 | Pending |
-| MEDIA-02 | Phase 4 | Pending |
-| MEDIA-03 | Phase 4 | Pending |
-| CONTACT-01 | Phase 4 | Pending |
-| CONTACT-02 | Phase 4 | Pending |
-| CONTACT-03 | Phase 4 | Pending |
-| CONTACT-04 | Phase 4 | Pending |
-| I18N-01 | TBD | Pending |
-| I18N-02 | TBD | Pending |
-| I18N-03 | TBD | Pending |
-| I18N-04 | TBD | Pending |
+| VIS-01 | Phase 1 | Pending |
+| VIS-02 | Phase 1 | Pending |
+| VIS-03 | Phase 1 | Pending |
+| VIS-04 | Phase 1 | Pending |
+| VIS-05 | Phase 1 | Pending |
+| HOME-01 | Phase 2 | Pending |
+| HOME-02 | Phase 2 | Pending |
+| HOME-03 | Phase 2 | Pending |
+| HOME-04 | Phase 2 | Pending |
+| PLAYER-01 | Phase 2 | Pending |
+| PLAYER-02 | Phase 2 | Pending |
+| PLAYER-03 | Phase 2 | Pending |
+| PLAYER-04 | Phase 2 | Pending |
+| SECT-01 | Phase 2 | Pending |
+| SECT-02 | Phase 2 | Pending |
+| SECT-03 | Phase 2 | Pending |
+| MEDIA-01 | Phase 3 | Pending |
+| MEDIA-02 | Phase 3 | Pending |
+| MEDIA-03 | Phase 3 | Pending |
+| CONTACT-01 | Phase 3 | Pending |
+| CONTACT-02 | Phase 3 | Pending |
+| CONTACT-03 | Phase 3 | Pending |
+| CONTACT-04 | Phase 3 | Pending |
+| I18N-01 | Phase 4 | Pending |
+| I18N-02 | Phase 4 | Pending |
+| I18N-03 | Phase 4 | Pending |
+| I18N-04 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 28 total
-- Mapped to phases: 24
-- Unmapped (TBD): 4 (I18N — to be assigned by roadmapper)
+- v1 requirements: 31 total
+- Mapped to phases: 31
+- Unmapped (TBD): 0
 
 ---
 *Requirements defined: 2026-05-18*
-*Last updated: 2026-05-18 after initial definition*
+*Last updated: 2026-05-18 after roadmap creation — traceability complete*
