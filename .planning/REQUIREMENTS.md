@@ -24,9 +24,9 @@
 
 ### Homepage & Hero
 
-- [ ] **HOME-01**: Visitor lands on a cinematic hero section with the player's name, position, and a high-impact full-screen visual (photo or video background)
-- [ ] **HOME-02**: Hero section includes scroll-triggered entrance animations (text reveal, image parallax) using GSAP ScrollTrigger
-- [ ] **HOME-03**: Hero section includes a clear Call-to-Action button directing scouts to the contact section
+- [x] **HOME-01**: Visitor lands on a cinematic hero section with the player's name, position, and a high-impact full-screen visual (photo or video background)
+- [x] **HOME-02**: Hero section includes scroll-triggered entrance animations (text reveal, image parallax) using GSAP ScrollTrigger
+- [x] **HOME-03**: Hero section includes a clear Call-to-Action button directing scouts to the contact section
 - [x] **HOME-04**: Page sections transition smoothly as user scrolls using Framer Motion and GSAP animations; page feels cinematic not static
 
 ### Player Profile
@@ -118,9 +118,9 @@
 | VIS-03 | Phase 1 | Pending |
 | VIS-04 | Phase 1 | Pending |
 | VIS-05 | Phase 1 | Pending |
-| HOME-01 | Phase 2 | Pending |
-| HOME-02 | Phase 2 | Pending |
-| HOME-03 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
+| HOME-02 | Phase 2 | Complete |
+| HOME-03 | Phase 2 | Complete |
 | HOME-04 | Phase 2 | Complete |
 | PLAYER-01 | Phase 2 | Complete |
 | PLAYER-02 | Phase 2 | Pending |

@@ -66,7 +66,7 @@ Plans:
 - [x] 02-01-PLAN.md — Foundation data layer: content/player.ts full rewrite (Player interfaces + Dmytro Kovalenko data), lib/animations/useScrollReveal.ts hook extraction, lucide-react install
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 02-02-PLAN.md — Hero section + page scaffold: HeroSection (GSAP parallax bg + Framer Motion text stagger), SectionStub component, page.tsx initial assembly (Hero + 3 stubs), layout.tsx metadata update
+- [x] 02-02-PLAN.md — Hero section + page scaffold: HeroSection (GSAP parallax bg + Framer Motion text stagger), SectionStub component, page.tsx initial assembly (Hero + 3 stubs), layout.tsx metadata update
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 02-03-PLAN.md — Profile + supporting sections + full assembly: AboutSection (bio grid + stat bars), TrophiesSection, ClubSection, TeamSection, page.tsx complete 8-section wiring, final build verification
@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
-| 2. Core Sections & Animations | 1/3 | In Progress|  |
+| 2. Core Sections & Animations | 2/3 | In Progress|  |
 | 3. Media & Contact | 0/TBD | Not started | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
