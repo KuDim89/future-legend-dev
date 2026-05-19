@@ -11,8 +11,8 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Design System — Future Legend Dev',
-  description: 'Football player personal website',
+  title: 'Dmytro Kovalenko — Football Player',
+  description: 'Scout profile for Dmytro Kovalenko, Central Midfielder. View stats, trophies, and club info.',
 };
 
 export default async function RootLayout({
