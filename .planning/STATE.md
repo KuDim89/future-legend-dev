@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 2 of 4 (Core Sections & Animations)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-05-19 — Phase 1 complete (3/3 plans); deployed and verified on GitHub Pages
+Plan: 0 of 3 in current phase
+Status: Ready to execute
+Last activity: 2026-05-19 — Phase 2 planned (3 plans, 3 waves)
 
 Progress: [██░░░░░░░░] 25%
 
@@ -28,7 +28,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
-| 2. Core Sections & Animations | 0/TBD | Not started | - |
+| 2. Core Sections & Animations | 0/3 | Planned | - |
 
 **Recent Trend:**
 - Last 5 plans: 01-01 ✓, 01-02 ✓, 01-03 ✓

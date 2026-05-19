@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
-| 2. Core Sections & Animations | 0/3 | Not started | - |
+| 2. Core Sections & Animations | 0/3 | Planned | - |
 | 3. Media & Contact | 0/TBD | Not started | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |

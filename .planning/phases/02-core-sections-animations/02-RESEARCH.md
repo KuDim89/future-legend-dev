@@ -996,22 +996,25 @@ export const metadata: Metadata = {
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **PLAYER-02 "real photo" vs. D-01 deferral**
    - What we know: PLAYER-02 requires a real photo; D-01 explicitly defers it; the slot will be built
    - What's unclear: Should PLAYER-02 be flagged as incomplete in Phase 2, or is "slot built" sufficient?
    - Recommendation: Tag as "Slot built — content update pending" in verification. Do not mark as fully complete.
+   - RESOLVED: Plans 02-01 and 02-03 acknowledge the gap explicitly, build the .heroBg structural slot, and tag PLAYER-02 as partially satisfied per D-01.
 
 2. **Should `ScrollFadeSection.tsx` be deleted or kept?**
    - What we know: Phase 2 replaces `page.tsx` body and extracts `useScrollReveal()` from this file
    - What's unclear: Does any other file reference `ScrollFadeSection.tsx`?
    - Recommendation: Check imports before deleting. If unused, delete in the same wave as page.tsx replacement to keep the codebase clean. If the plan deletes it, note that verification must confirm no import errors.
+   - RESOLVED: Plan 02-02 Task 3 removes the ScrollFadeSection import from page.tsx; file is left on disk (harmless unused file — deletion deferred to avoid risk).
 
 3. **`page.tsx` metadata — update in layout.tsx or generate dynamically?**
    - What we know: UI-SPEC Copywriting Contract defines `title: "{player.fullName} — Football Player"` which includes the player's name from data
    - What's unclear: `layout.tsx` has a static `metadata` export now. Updating it to dynamic `generateMetadata()` is cleaner but adds complexity.
    - Recommendation: Simple approach — update the static `metadata` const in `app/[lang]/layout.tsx` to hardcode the player name (it's a placeholder anyway). Save `generateMetadata()` for Phase 4 when i18n requires locale-specific titles.
+   - RESOLVED: Plan 02-02 Task 3 updates `metadata` export in layout.tsx statically with player name and meta description; generateMetadata() deferred to Phase 4.
 
 ---
 
