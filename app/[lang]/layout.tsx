@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Future Legend',
+  title: 'Design System — Future Legend Dev',
   description: 'Football player personal website',
 };
 

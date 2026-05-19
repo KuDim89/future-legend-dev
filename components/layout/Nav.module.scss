@@ -1,0 +1,127 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--space-16);
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: none;
+}
+
+.scrolled {
+  backdrop-filter: blur(12px);
+  background: rgba(13, 27, 42, 0.95);
+
+  :global([data-theme='light']) & {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+}
+
+.brand {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.links {
+  display: none;
+  gap: var(--space-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.link {
+  a {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @include respond-to('md') {
+    display: none;
+  }
+}
+
+.hamburgerBar {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: var(--space-16);
+  left: 0;
+  width: 100%;
+  background: var(--color-bg-elevated);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 99;
+
+  a {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}

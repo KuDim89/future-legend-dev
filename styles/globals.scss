@@ -1,5 +1,6 @@
 // Global styles
-// tokens and mixins are auto-imported via sassOptions.additionalData in next.config.ts
+// mixins auto-imported via additionalData; tokens imported explicitly here (not in modules)
+@use './tokens';
 @use './typography';
 
 body {

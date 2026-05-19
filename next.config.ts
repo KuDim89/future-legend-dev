@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   sassOptions: {
-    additionalData: `@use '@/styles/tokens' as *; @use '@/styles/mixins' as *;`,
+    // Only mixins — tokens have :root/:data-theme global selectors that break CSS Modules purity check
+    additionalData: `@use '@/styles/mixins' as *;`,
   },
 };
 
