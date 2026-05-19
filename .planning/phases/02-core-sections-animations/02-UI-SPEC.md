@@ -1,7 +1,7 @@
 ---
 phase: 2
 slug: core-sections-animations
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-05-19
@@ -118,6 +118,8 @@ The Phase 1 accent list is extended. Full reserved list for `--color-accent` (#E
 
 Accent is NOT used for: body text, card backgrounds, trophy card body, logo placeholders, decorative borders, or any element not listed above.
 
+**Exception: accent used at 15% opacity in hero gradient as atmospheric cinematic effect — not a semantic UI signal. Opacity below 20% is below perception threshold for color meaning.**
+
 ### Phase 2 Surface Usage
 
 | Surface | Token | Phase 2 Usage |
@@ -195,6 +197,8 @@ Source: CONTEXT.md "Claude's Discretion" — section heading style. Researcher d
 
 ## Hero Section — Full Visual Contract
 
+**Primary visual anchor:** The player name `<h1>` at `--text-hero` (80px) Oswald 700 is the dominant focal point of the page — the largest text element, the first element the staggered entrance animation reveals, and the element scouts read first on landing.
+
 ### Layout
 
 - `min-height: 100svh` (fallback `100vh`)
@@ -239,7 +243,7 @@ Animation owner: Framer Motion. Trigger: component mount.
 - Label: "Contact Me" (English placeholder — Phase 4 will i18n this)
 - Action: smooth scroll to `#contact` anchor (Lenis handles smooth scroll behavior)
 - `href="#contact"` — native anchor, no JS required for basic scroll
-- Size: `padding: 14px 32px` (14px = `--space-3` + 2px; 32px = `--space-8`)
+- Size: `padding: var(--space-4) var(--space-8)` (16px 32px)
 - Background: `--color-accent`
 - Background hover: `--color-accent-hover`
 - Text: `--color-text` (white in dark theme — sufficient contrast against crimson)
@@ -248,7 +252,7 @@ Animation owner: Framer Motion. Trigger: component mount.
 - Hover transition: `background-color 150ms ease`
 - Hover animation owner: CSS transition only (not Framer Motion — too simple for a library animation)
 - Focus: 2px solid `--color-accent`, 2px offset (`:focus-visible` only)
-- Minimum touch target: 44px height (14px padding top + 16px line-height + 14px padding bottom = 44px — exactly at WCAG minimum)
+- Minimum touch target: 48px height (16px padding top + 16px line-height + 16px padding bottom = 48px — exceeds WCAG 44px minimum, on 4px grid)
 
 Source: CONTEXT.md D-02, D-03. Researcher decision for button sizing and easing values.
 
@@ -714,14 +718,14 @@ Per CLAUDE.md: Framer Motion owns mount/unmount and hover. GSAP owns scroll-trig
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved 2026-05-19
 
 ---
 
