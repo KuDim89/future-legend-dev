@@ -27,14 +27,14 @@
 - [ ] **HOME-01**: Visitor lands on a cinematic hero section with the player's name, position, and a high-impact full-screen visual (photo or video background)
 - [ ] **HOME-02**: Hero section includes scroll-triggered entrance animations (text reveal, image parallax) using GSAP ScrollTrigger
 - [ ] **HOME-03**: Hero section includes a clear Call-to-Action button directing scouts to the contact section
-- [ ] **HOME-04**: Page sections transition smoothly as user scrolls using Framer Motion and GSAP animations; page feels cinematic not static
+- [x] **HOME-04**: Page sections transition smoothly as user scrolls using Framer Motion and GSAP animations; page feels cinematic not static
 
 ### Player Profile
 
-- [ ] **PLAYER-01**: Visitor can view the player's full profile: full name, position, working foot, nationality, date of birth, and current club
+- [x] **PLAYER-01**: Visitor can view the player's full profile: full name, position, working foot, nationality, date of birth, and current club
 - [ ] **PLAYER-02**: Visitor can view a high-quality real photo of the player
-- [ ] **PLAYER-03**: Visitor can view key player statistics or attributes (configurable from `content/player.ts`)
-- [ ] **PLAYER-04**: Player information section tells the player's story through imagery and short narrative text
+- [x] **PLAYER-03**: Visitor can view key player statistics or attributes (configurable from `content/player.ts`)
+- [x] **PLAYER-04**: Player information section tells the player's story through imagery and short narrative text
 
 ### Media System
 
@@ -121,11 +121,11 @@
 | HOME-01 | Phase 2 | Pending |
 | HOME-02 | Phase 2 | Pending |
 | HOME-03 | Phase 2 | Pending |
-| HOME-04 | Phase 2 | Pending |
-| PLAYER-01 | Phase 2 | Pending |
+| HOME-04 | Phase 2 | Complete |
+| PLAYER-01 | Phase 2 | Complete |
 | PLAYER-02 | Phase 2 | Pending |
-| PLAYER-03 | Phase 2 | Pending |
-| PLAYER-04 | Phase 2 | Pending |
+| PLAYER-03 | Phase 2 | Complete |
+| PLAYER-04 | Phase 2 | Complete |
 | SECT-01 | Phase 2 | Pending |
 | SECT-02 | Phase 2 | Pending |
 | SECT-03 | Phase 2 | Pending |
