@@ -30,8 +30,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The design token system (`_tokens.scss`) is defined with CSS custom properties for colors, spacing, and typography covering both light and dark themes
   4. The site renders correctly on mobile (375px) through desktop (1440px+) — layout does not break at any viewport
   5. Lenis smooth scroll and GSAP ScrollTrigger are initialized and the scroll proxy is wired — scroll events fire correctly
-**Plans**: TBD
+**Plans**: 3 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 01-01-PLAN.md — Project bootstrap: Next.js static export config, app/[lang]/ locale routing, GitHub Actions CI/CD pipeline
+- [ ] 01-02-PLAN.md — Design token system: SCSS tokens, typography scale, breakpoint mixins, Oswald + Roboto font wiring
+- [ ] 01-03-PLAN.md — Demo page: Lenis + GSAP ScrollTrigger, stub Nav (8 anchors), ThemeToggle, full design system demo page
 
 ### Phase 2: Core Sections & Animations
 **Goal**: A scout visiting the site can immediately identify who the player is, view their profile and career achievements, and experience the full cinematic scroll journey
@@ -78,7 +83,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/TBD | Not started | - |
+| 1. Foundation & Design System | 0/3 | Planned | - |
 | 2. Core Sections & Animations | 0/TBD | Not started | - |
 | 3. Media & Contact | 0/TBD | Not started | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
