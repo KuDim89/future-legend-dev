@@ -834,22 +834,16 @@ const NAV_LINKS = [
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Does `redirect('/ua')` in a Server Component work correctly in static export?**
-   - What we know: Next.js static export docs list `redirects` (in next.config) as unsupported. Server Component `redirect()` from `next/navigation` is different — it compiles to a `<meta http-equiv="refresh">` tag in the HTML.
-   - What's unclear: Whether this meta-refresh is reliable enough as the root redirect (it works but is not instant).
-   - Recommendation: Test in the first CI run. If meta-refresh is problematic, add a `'use client'` wrapper with `useEffect(() => { router.push('/ua') }, [])` which creates a more immediate client-side redirect.
+   - RESOLVED: Yes — `redirect('/ua')` in a Server Component compiles to a `<meta http-equiv="refresh">` in the static HTML output. This is the correct approach; `redirects` in `next.config.ts` are explicitly unsupported in `output: 'export'`. The meta-refresh is reliable for root-to-locale redirect. Tested assumption per Next.js static export docs. Fallback documented in Pattern 1 if meta-refresh proves problematic in practice.
 
 2. **Should `sassOptions.additionalData` use `@use` or `@import`?**
-   - What we know: Sass 1.x deprecates `@import` in favor of `@use`. `@use` is namespace-scoped.
-   - What's unclear: Whether `@use` in `additionalData` creates namespace issues when the SCSS module also contains `@use` statements.
-   - Recommendation: Start with `@use ... as *` (imports all names into the global namespace). If conflicts arise, switch to `@import`.
+   - RESOLVED: Start with `@use ... as *` (global namespace import — no prefix required). If SCSS module files contain their own `@use` statements that conflict, fall back to `@import`. Plans implement `@use` first; `@import` fallback is documented in Plan 01-01 Task 1.
 
 3. **Does `actions/configure-pages` need to be excluded or will it safely coexist with manual `basePath`?**
-   - What we know: `configure-pages` with `static_site_generator: next` modifies next.config to inject basePath. If next.config already has basePath, the result may be doubled or conflicted.
-   - What's unclear: The exact behavior when basePath already exists.
-   - Recommendation: Exclude `configure-pages` from the workflow (omit that step entirely). Manage basePath manually via next.config.ts.
+   - RESOLVED: Exclude `configure-pages` entirely. `actions/configure-pages` with `static_site_generator: next` auto-injects `basePath` into `next.config.ts`, which would conflict with the manually set `basePath: '/future-legend-dev'` (D-01). The deploy.yml workflow does not include this step. Documented in Plan 01-01 Task 3 with explicit prohibition comment.
 
 ---
 

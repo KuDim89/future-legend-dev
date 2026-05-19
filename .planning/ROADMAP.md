@@ -34,9 +34,19 @@ Decimal phases appear between their surrounding integers in numeric order.
 **UI hint**: yes
 
 Plans:
+**Wave 1**
 - [ ] 01-01-PLAN.md — Project bootstrap: Next.js static export config, app/[lang]/ locale routing, GitHub Actions CI/CD pipeline
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Design token system: SCSS tokens, typography scale, breakpoint mixins, Oswald + Roboto font wiring
+
+**Wave 3** *(blocked on Wave 1 + 2 completion)*
 - [ ] 01-03-PLAN.md — Demo page: Lenis + GSAP ScrollTrigger, stub Nav (8 anchors), ThemeToggle, full design system demo page
+
+Cross-cutting constraints:
+- `npx next build` must exit 0 before any plan is marked done
+- All GSAP code must be inside `'use client'` files only (CLAUDE.md rule)
+- `basePath: '/future-legend-dev'` must be consistent across all file references
 
 ### Phase 2: Core Sections & Animations
 **Goal**: A scout visiting the site can immediately identify who the player is, view their profile and career achievements, and experience the full cinematic scroll journey
