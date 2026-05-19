@@ -1,0 +1,29 @@
+.stub {
+  min-height: 60vh;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  line-height: 1.1;
+
+  @include respond-to('md') {
+    font-size: var(--text-4xl);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: var(--space-2);
+  }
+}
