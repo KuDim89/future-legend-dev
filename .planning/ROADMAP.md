@@ -12,7 +12,7 @@ Four phases take this site from a blank repo to a fully bilingual, cinematic foo
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Design System** - Static export + GitHub Pages CI/CD + SCSS design tokens + light/dark theme + smooth scroll scaffold
+- [x] **Phase 1: Foundation & Design System** - Static export + GitHub Pages CI/CD + SCSS design tokens + light/dark theme + smooth scroll scaffold
 - [ ] **Phase 2: Core Sections & Animations** - Hero, player profile, about, trophies, club, team — all sections built and animated
 - [ ] **Phase 3: Media & Contact** - YouTube lite-embed highlights, photo gallery lightbox, contact form + Telegram pipeline
 - [ ] **Phase 4: Bilingual Support & Polish** - UA/EN language system, locale switcher, dictionary files, build-time locale pre-rendering
@@ -35,13 +35,13 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 **Wave 1**
-- [ ] 01-01-PLAN.md — Project bootstrap: Next.js static export config, app/[lang]/ locale routing, GitHub Actions CI/CD pipeline
+- [x] 01-01-PLAN.md — Project bootstrap: Next.js static export config, app/[lang]/ locale routing, GitHub Actions CI/CD pipeline
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 01-02-PLAN.md — Design token system: SCSS tokens, typography scale, breakpoint mixins, Oswald + Roboto font wiring
+- [x] 01-02-PLAN.md — Design token system: SCSS tokens, typography scale, breakpoint mixins, Oswald + Roboto font wiring
 
 **Wave 3** *(blocked on Wave 1 + 2 completion)*
-- [ ] 01-03-PLAN.md — Demo page: Lenis + GSAP ScrollTrigger, stub Nav (8 anchors), ThemeToggle, full design system demo page
+- [x] 01-03-PLAN.md — Demo page: Lenis + GSAP ScrollTrigger, stub Nav (8 anchors), ThemeToggle, full design system demo page
 
 Cross-cutting constraints:
 - `npx next build` must exit 0 before any plan is marked done
@@ -58,8 +58,25 @@ Cross-cutting constraints:
   2. Scrolling through the page triggers entrance animations (text reveal, parallax, section transitions) that make the experience feel cinematic rather than static
   3. Visitor can read the player's complete profile: full name, position, working foot, nationality, date of birth, current club, and key attributes — all sourced from `content/player.ts`
   4. Visitor can view the player's trophies/achievements section, current club information, and team section — all sections display real content
-**Plans**: TBD
+**Plans**: 3 plans
 **UI hint**: yes
+
+Plans:
+**Wave 1**
+- [ ] 02-01-PLAN.md — Foundation data layer: content/player.ts full rewrite (Player interfaces + Dmytro Kovalenko data), lib/animations/useScrollReveal.ts hook extraction, lucide-react install
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 02-02-PLAN.md — Hero section + page scaffold: HeroSection (GSAP parallax bg + Framer Motion text stagger), SectionStub component, page.tsx initial assembly (Hero + 3 stubs), layout.tsx metadata update
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 02-03-PLAN.md — Profile + supporting sections + full assembly: AboutSection (bio grid + stat bars), TrophiesSection, ClubSection, TeamSection, page.tsx complete 8-section wiring, final build verification
+
+Cross-cutting constraints:
+- `npx next build` must exit 0 before any plan is marked done
+- GSAP animation ownership rule: GSAP owns scroll sequences; Framer Motion owns mount/unmount — never animate the same element with both (CLAUDE.md)
+- All animated section components must be 'use client'; SectionStub and page.tsx are Server Components
+- content/player.ts is the sole data source; sections never import it directly — data flows through page.tsx props
+- PLAYER-02 note: photo slot built in HeroSection .heroBg; real photo deferred as content update per D-01
 
 ### Phase 3: Media & Contact
 **Goal**: Visitors can watch player highlight videos and browse photos without page load penalty, and scouts can submit a contact inquiry that reaches the player via Telegram
@@ -93,7 +110,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Design System | 0/3 | Planned | - |
-| 2. Core Sections & Animations | 0/TBD | Not started | - |
+| 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
+| 2. Core Sections & Animations | 0/3 | Not started | - |
 | 3. Media & Contact | 0/TBD | Not started | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
