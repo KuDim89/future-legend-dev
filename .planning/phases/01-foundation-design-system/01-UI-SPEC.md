@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-05-19
+revised: 2026-05-19
 ---
 
 # Phase 1 — UI Design Contract
@@ -45,8 +46,8 @@ Declared values (all multiples of 4):
 | 8 | `--space-8` | 32px | Section inner padding (mobile) |
 | 12 | `--space-12` | 48px | Section inner padding (desktop) |
 | 16 | `--space-16` | 64px | Major section breaks |
-| 24 | `--space-24` | 96px | Full-section vertical padding (desktop) |
-| 32 | `--space-32` | 128px | Hero vertical padding |
+| 24 | `--space-24` | 96px | Full-section vertical padding (desktop) — extended scale for cinematic section padding; premium athletic site requires generous vertical rhythm at desktop viewport |
+| 32 | `--space-32` | 128px | Hero vertical padding — extended scale for cinematic section padding; premium athletic site requires generous vertical rhythm at desktop viewport |
 
 Exceptions: Nav height is 64px (`--space-16`) — aligns with 8px grid but is a named exception for touch-target compliance. Touch targets on interactive nav items must be minimum 44px tall (WCAG 2.5.8).
 
@@ -58,40 +59,59 @@ Source: RESEARCH.md "Design Token System Structure" section. Values follow 8px b
 
 Two fonts only: Oswald (headings) + Roboto (body). No third font.
 
-### Type Scale
+### Type Scale (Full Token Set)
 
-| Token | CSS Custom Property | px Value | rem | Role |
-|-------|--------------------|---------:|-----|------|
-| xs | `--text-xs` | 12px | 0.75rem | Captions, legal, metadata |
-| sm | `--text-sm` | 14px | 0.875rem | Labels, nav links, badge text |
-| base | `--text-base` | 16px | 1rem | Body paragraphs, descriptions |
-| lg | `--text-lg` | 20px | 1.25rem | Large body, intro text |
-| xl | `--text-xl` | 25px | 1.563rem | H6, sub-headings |
-| 2xl | `--text-2xl` | 31px | 1.953rem | H5, H4 |
-| 3xl | `--text-3xl` | 39px | 2.441rem | H3 |
-| 4xl | `--text-4xl` | 49px | 3.052rem | H2 |
-| 5xl | `--text-5xl` | 61px | 3.815rem | H1 |
-| hero | `--text-hero` | 80px | 5rem | Hero display — player name |
+The full mathematical scale (10 tokens) exists in `_tokens.scss` as the complete major-third progression. These tokens are available for implementation flexibility but the design contract restricts *component usage* to 4 semantic tiers — not 10 equal active choices.
+
+| Token | CSS Custom Property | px Value | rem |
+|-------|--------------------|---------:|-----|
+| xs | `--text-xs` | 12px | 0.75rem |
+| sm | `--text-sm` | 14px | 0.875rem |
+| base | `--text-base` | 16px | 1rem |
+| lg | `--text-lg` | 20px | 1.25rem |
+| xl | `--text-xl` | 25px | 1.563rem |
+| 2xl | `--text-2xl` | 31px | 1.953rem |
+| 3xl | `--text-3xl` | 39px | 2.441rem |
+| 4xl | `--text-4xl` | 49px | 3.052rem |
+| 5xl | `--text-5xl` | 61px | 3.815rem |
+| hero | `--text-hero` | 80px | 5rem |
 
 Scale ratio: major third (1.25) from 16px base. Source: RESEARCH.md type scale.
 
+### Typography Usage Tiers (Design Contract)
+
+The 10 tokens map to 4 usage tiers. Executors choose within the tier range — not from all 10 tokens freely.
+
+| Tier | Token Range | px Range | Usage |
+|------|-------------|----------:|-------|
+| **Caption/Label** | `--text-xs` / `--text-sm` | 12–14px | Navigation labels, captions, badge text, metadata |
+| **Body** | `--text-base` / `--text-lg` | 16–20px | Body paragraphs, descriptions, intro text |
+| **Subheading** | `--text-xl` / `--text-2xl` | 25–31px | Section subheadings, card titles, H5–H6 |
+| **Display/Heading** | `--text-3xl` through `--text-hero` | 39–80px | H1–H3, section titles, hero player name |
+
 ### Font Roles
+
+Two weights only: **Regular (400)** and **Bold (700)**. No intermediate weights.
 
 | Element | Font | Size Token | Weight | Line Height |
 |---------|------|------------|--------|-------------|
-| Body paragraph | Roboto | `--text-base` (16px) | 400 | 1.6 |
-| Large body / intro | Roboto | `--text-lg` (20px) | 400 | 1.6 |
-| Label / nav link | Roboto | `--text-sm` (14px) | 500 | 1.4 |
-| Caption / metadata | Roboto | `--text-xs` (12px) | 400 | 1.4 |
-| H6 | Oswald | `--text-xl` (25px) | 400 | 1.2 |
-| H5 | Oswald | `--text-2xl` (31px) | 400 | 1.2 |
-| H4 | Oswald | `--text-2xl` (31px) | 600 | 1.2 |
-| H3 | Oswald | `--text-3xl` (39px) | 600 | 1.15 |
-| H2 | Oswald | `--text-4xl` (49px) | 700 | 1.1 |
-| H1 | Oswald | `--text-5xl` (61px) | 700 | 1.05 |
-| Hero display | Oswald | `--text-hero` (80px) | 700 | 1.0 |
+| Body paragraph | Roboto | `--text-base` (16px) | 400 — Regular | 1.6 |
+| Large body / intro | Roboto | `--text-lg` (20px) | 400 — Regular | 1.6 |
+| Label / nav link (inactive) | Roboto | `--text-sm` (14px) | 400 — Regular | 1.4 |
+| Caption / metadata | Roboto | `--text-xs` (12px) | 400 — Regular | 1.4 |
+| Nav link (active state) | Roboto | `--text-sm` (14px) | 700 — Bold | 1.4 |
+| H6 | Oswald | `--text-xl` (25px) | 400 — Regular | 1.2 |
+| H5 | Oswald | `--text-2xl` (31px) | 400 — Regular | 1.2 |
+| H4 | Oswald | `--text-2xl` (31px) | 700 — Bold | 1.2 |
+| H3 | Oswald | `--text-3xl` (39px) | 700 — Bold | 1.15 |
+| H2 | Oswald | `--text-4xl` (49px) | 700 — Bold | 1.1 |
+| H1 | Oswald | `--text-5xl` (61px) | 700 — Bold | 1.05 |
+| Hero display | Oswald | `--text-hero` (80px) | 700 — Bold | 1.0 |
 
-Font weights loaded: Oswald 400, 600, 700. Roboto 400, 500, 700 (normal + italic).
+Font weights loaded: Oswald 400, 700. Roboto 400, 700 (normal + italic).
+
+Weight rationale: 500 (former Roboto label weight) and 600 (former Oswald H5/H6) are dropped. These intermediate weights add complexity without meaningful visual distinction at typical viewport sizes. Both fonts use only 400 and 700.
+
 Body line-height: 1.6 (optimized for readability at 16px on screen).
 Heading line-height: 1.05–1.2 (tightens as size increases — compressed display style for athletic aesthetic).
 
@@ -181,7 +201,7 @@ The complete token system lives in `styles/_tokens.scss`. This file is auto-impo
   --font-heading: var(--font-oswald), 'Arial Narrow', sans-serif;
   --font-body:    var(--font-roboto), 'Arial', sans-serif;
 
-  /* Type scale tokens */
+  /* Type scale tokens (full mathematical scale — component usage governed by 4-tier contract above) */
   --text-xs:   0.75rem;
   --text-sm:   0.875rem;
   --text-base: 1rem;
@@ -242,9 +262,9 @@ Icon: Sun / Moon SVG inline (no icon library in Phase 1 — hand-code the two SV
 | Element | State | Visual |
 |---------|-------|--------|
 | Nav bar | Default | `--color-bg-elevated` background, `--color-border` bottom border, 64px height |
-| Nav link | Default | `--color-text-muted`, `--text-sm`, Roboto 500 |
+| Nav link | Default | `--color-text-muted`, `--text-sm`, Roboto 400 |
 | Nav link | Hover | `--color-text`, transition 150ms ease |
-| Nav link | Active (current section) | `--color-accent`, left border 2px solid `--color-accent` OR underline 2px `--color-accent` |
+| Nav link | Active (current section) | `--color-accent`, Roboto 700, left border 2px solid `--color-accent` OR underline 2px `--color-accent` |
 | Nav bar | Scrolled | Backdrop blur 12px, background opacity increases to 95% |
 | Mobile | < 768px | Collapse to hamburger menu (hamburger icon = 3 lines, 24px, `--color-text`) |
 
@@ -274,10 +294,12 @@ This section verifies Lenis + GSAP ScrollTrigger proxy is wired correctly.
 
 The Phase 1 demo page (`app/[lang]/page.tsx`) is a vertical stack of specimen sections. It is a developer reference — visual design is utilitarian but uses the real token system.
 
+Primary focal point: the "Design System" H1 at the top of the typography section — the largest text element, first visible after nav.
+
 ### Sections (top to bottom)
 
 1. **Nav** — stub nav with real section anchors, theme toggle, responsive collapse
-2. **Typography Specimens** — H1 through H6 in Oswald, body paragraph in Roboto, small/label text. Each labeled with token name and px value. Background: `--color-bg`. Title: "Typography Scale" in H2.
+2. **Typography Specimens** — H1 through H6 in Oswald, body paragraph in Roboto, small/label text. Each labeled with token name and px value. Background: `--color-bg`. Title: "Typography Scale" in H2. The "Design System" H1 renders at `--text-5xl` (61px) Oswald 700 and is the primary focal point of the demo page.
 3. **Color Palette Swatches** — Two columns (Dark theme / Light theme). Each swatch: 80px circle or 120×64px rectangle, token name below, hex value below that. Background: `--color-bg-elevated`.
 4. **Scroll Test Section** — Tall section (min-height: 80vh) with 5–6 fade-in items (text boxes). Heading: "Scroll Animation Test". Each item fades in as it enters viewport (GSAP verification). Background: `--color-bg`.
 5. **Footer** — Minimal: "Design System Demo — Phase 1" label in `--text-xs`, `--color-text-muted`. Not a real footer.
@@ -407,3 +429,7 @@ ThemeProvider config:
 | Line heights (body 1.6, heading 1.05–1.2) | Researcher default — premium athletic design standard |
 | Focus ring spec (2px solid accent, :focus-visible) | WCAG 2.1 AA + researcher default |
 | Touch target minimum 44px | WCAG 2.5.8 — researcher default |
+| 4-tier typography usage contract (not 10 equal choices) | Checker revision 2026-05-19 — D4 BLOCK fix |
+| 2 weights only: 400 + 700 (dropped 500 and 600) | Checker revision 2026-05-19 — D4 BLOCK fix |
+| Extended spacing justification (96px, 128px) | Checker revision 2026-05-19 — D5 FLAG fix |
+| Primary focal point declaration (demo page H1) | Checker revision 2026-05-19 — D2 FLAG fix |
