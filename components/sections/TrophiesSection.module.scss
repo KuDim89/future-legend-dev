@@ -1,0 +1,82 @@
+// TrophiesSection.module.scss
+// Mixins auto-injected via sassOptions.additionalData — no @use needed
+// Tokens: use var(--token) — NOT $scss-variable
+
+.section {
+  padding: var(--space-16) var(--space-4);
+
+  @include respond-to('lg') {
+    padding: var(--space-24) var(--space-8);
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: var(--space-12);
+
+  @include respond-to('md') {
+    font-size: var(--text-4xl);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: var(--space-2);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Trophy card with crimson left stripe (per UI-SPEC)
+.card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 4px;
+  padding: var(--space-6);
+}
+
+.trophyName {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.competition {
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+  line-height: 1.5;
+}
+
+.year {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
