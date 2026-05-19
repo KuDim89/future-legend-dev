@@ -1,1 +1,56 @@
-// Design tokens — populated in Plan 02
+// Dark theme is the :root default (D-07)
+// Placing values on :root means the page renders dark before any JS runs — prevents FOUC
+:root,
+[data-theme='dark'] {
+  // Color tokens
+  --color-bg:           #0D1B2A;
+  --color-bg-elevated:  #162336;
+  --color-text:         #F0F4F8;
+  --color-text-muted:   #8A9BB0;
+  --color-accent:       #E5002B;
+  --color-accent-hover: #FF1A42;
+  --color-border:       rgba(240, 244, 248, 0.10);
+  --color-overlay:      rgba(13, 27, 42, 0.80);
+  --color-destructive:  #CC0020;
+
+  // Font family tokens
+  --font-heading: var(--font-oswald), 'Arial Narrow', sans-serif;
+  --font-body:    var(--font-roboto), 'Arial', sans-serif;
+
+  // Type scale (major-third ratio 1.25 from 16px base)
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.563rem;
+  --text-2xl:  1.953rem;
+  --text-3xl:  2.441rem;
+  --text-4xl:  3.052rem;
+  --text-5xl:  3.815rem;
+  --text-hero: 5rem;
+
+  // Spacing (8px base unit)
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+}
+
+[data-theme='light'] {
+  // Color overrides only — font and spacing tokens are theme-independent
+  --color-bg:           #FFFFFF;
+  --color-bg-elevated:  #F5F7FA;
+  --color-text:         #111111;
+  --color-text-muted:   #555F6D;
+  --color-accent:       #E5002B;
+  --color-accent-hover: #C40023;
+  --color-border:       rgba(17, 17, 17, 0.12);
+  --color-overlay:      rgba(255, 255, 255, 0.85);
+  --color-destructive:  #CC0020;
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { oswald, roboto } from '@/app/fonts';
 import { Providers } from '@/components/providers/Providers';
+import { SmoothScrollProvider } from '@/lib/SmoothScrollProvider';
 import '@/styles/globals.scss';
 
 export const dynamicParams = false;
@@ -30,7 +31,9 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </Providers>
       </body>
     </html>
   );

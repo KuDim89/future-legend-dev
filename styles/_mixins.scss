@@ -1,1 +1,17 @@
-// SCSS mixins — populated in Plan 02
+@use 'sass:map';
+
+// Responsive breakpoints — mobile-first (base: 375px)
+$breakpoints: (
+  'sm':  640px,
+  'md':  768px,
+  'lg':  1024px,
+  'xl':  1280px,
+  '2xl': 1440px,
+);
+
+@mixin respond-to($bp) {
+  $size: map.get($breakpoints, $bp);
+  @media (min-width: $size) {
+    @content;
+  }
+}
