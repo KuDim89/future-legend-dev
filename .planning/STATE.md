@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** A scout or coach visiting the site immediately understands who this player is, what they can do, and how to contact them — within seconds of landing on the page.
-**Current focus:** Phase 1 — Foundation & Design System
+**Current focus:** Phase 2 — Core Sections & Animations
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation & Design System)
-Plan: 0 of 3 in current phase
-Status: Ready to execute
-Last activity: 2026-05-19 — Phase 1 planning complete; 3 plans in 3 waves, UI-SPEC and Walking Skeleton created, all 9 requirements covered
+Phase: 2 of 4 (Core Sections & Animations)
+Plan: 0 of TBD in current phase
+Status: Ready to plan
+Last activity: 2026-05-19 — Phase 1 complete (3/3 plans); deployed and verified on GitHub Pages
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
+- Total plans completed: 3
 - Average duration: — min
-- Total execution time: 0 hours
+- Total execution time: 1 session
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| - | - | - | - |
+| Phase | Plans | Status | Completed |
+|-------|-------|--------|-----------|
+| 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
+| 2. Core Sections & Animations | 0/TBD | Not started | - |
 
 **Recent Trend:**
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: 01-01 ✓, 01-02 ✓, 01-03 ✓
+- Trend: On track
 
 *Updated after each plan completion*
 
@@ -64,5 +65,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-05-19
-Stopped at: Phase 1 planned — 3 plans (01-01, 01-02, 01-03) in 3 waves. Ready to run /gsd:execute-phase 1
-Resume file: None
+Stopped at: Phase 2 context gathered — 21 decisions captured across Hero, Animations, Player Profile, and Missing Sections
+Resume file: .planning/phases/02-core-sections-animations/02-CONTEXT.md
