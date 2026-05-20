@@ -119,7 +119,27 @@ Cross-cutting constraints:
   2. Visitor can switch between UA and EN via a visible language toggle — the language preference persists across browser sessions (reload keeps the selected language)
   3. Every visible UI string, section title, CTA, and player bio text is sourced from `dictionaries/en.json` or `dictionaries/ua.json` — no hardcoded strings exist in component files
   4. Running `next build` produces both `/ua/` and `/en/` as pre-rendered static HTML with no runtime i18n overhead
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+**Wave 1**
+- [ ] 04-01-PLAN.md — Dictionary foundation: fill en.json + ua.json (all ~60 keys), create lib/getDictionary.ts loader, rewrite app/page.tsx client redirect, migrate content/player.ts interfaces (D-12 Option A)
+
+**Wave 2** *(blocked on Wave 1 completion — 04-02 and 04-03 run in parallel)*
+- [ ] 04-02-PLAN.md — LanguageSwitcher + Nav integration: create LanguageSwitcher.tsx + SCSS, update Nav with dict prop and LanguageSwitcher in desktop controls and mobile menu
+- [ ] 04-03-PLAN.md — Section migration: add dict prop to all 8 section components, replace every hardcoded string with dict key lookups, resolve all TypeScript errors from player.ts migration
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 04-04-PLAN.md — Final wiring + build verification: thread getDictionary into app/[lang]/page.tsx, pass dict slices to all components, run npx next build confirming out/ua/ and out/en/ pre-render
+
+Cross-cutting constraints:
+- `npx next build` must exit 0 before any plan is marked done
+- getDictionary uses dynamic import() only — no fs.readFile — compatible with output: 'export'
+- Only app/[lang]/page.tsx calls getDictionary — sections never import dictionaries directly (CLAUDE.md content data flow rule)
+- BASE_PATH = '/future-legend-dev' hardcoded in both app/page.tsx and LanguageSwitcher.tsx (live bug fix)
+- localStorage locale key whitelisted in app/page.tsx: `stored === 'en' ? 'en' : 'ua'` — never raw value
+- LanguageSwitcher animations: Framer Motion / CSS hover only — no GSAP (CLAUDE.md animation rule)
+- D-14: dict.trophies.items must have exactly 3 entries matching player.ts trophies array length
 
 ## Progress
 
@@ -131,4 +151,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
 | 3. Media & Contact | 4/4 | Complete | 2026-05-20 |
-| 4. Bilingual Support & Polish | 0/TBD | Not started | - |
+| 4. Bilingual Support & Polish | 0/4 | Not started | - |
