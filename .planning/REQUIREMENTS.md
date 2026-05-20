@@ -44,9 +44,9 @@
 
 ### Supporting Content Sections
 
-- [ ] **SECT-01**: Visitor can view a trophies / achievements section displaying the player's career honors
-- [ ] **SECT-02**: Visitor can view information about the player's current club
-- [ ] **SECT-03**: Visitor can view a team section (player's current teammates or squad context)
+- [x] **SECT-01**: Visitor can view a trophies / achievements section displaying the player's career honors
+- [x] **SECT-02**: Visitor can view information about the player's current club
+- [x] **SECT-03**: Visitor can view a team section (player's current teammates or squad context)
 
 ### Contact System
 

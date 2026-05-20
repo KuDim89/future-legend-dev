@@ -13,7 +13,7 @@ Four phases take this site from a blank repo to a fully bilingual, cinematic foo
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Design System** - Static export + GitHub Pages CI/CD + SCSS design tokens + light/dark theme + smooth scroll scaffold
-- [ ] **Phase 2: Core Sections & Animations** - Hero, player profile, about, trophies, club, team — all sections built and animated
+- [x] **Phase 2: Core Sections & Animations** - Hero, player profile, about, trophies, club, team — all sections built and animated
 - [ ] **Phase 3: Media & Contact** - YouTube lite-embed highlights, photo gallery lightbox, contact form + Telegram pipeline
 - [ ] **Phase 4: Bilingual Support & Polish** - UA/EN language system, locale switcher, dictionary files, build-time locale pre-rendering
 
@@ -69,7 +69,7 @@ Plans:
 - [x] 02-02-PLAN.md — Hero section + page scaffold: HeroSection (GSAP parallax bg + Framer Motion text stagger), SectionStub component, page.tsx initial assembly (Hero + 3 stubs), layout.tsx metadata update
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 02-03-PLAN.md — Profile + supporting sections + full assembly: AboutSection (bio grid + stat bars), TrophiesSection, ClubSection, TeamSection, page.tsx complete 8-section wiring, final build verification
+- [x] 02-03-PLAN.md — Profile + supporting sections + full assembly: AboutSection (bio grid + stat bars), TrophiesSection, ClubSection, TeamSection, page.tsx complete 8-section wiring, final build verification
 
 Cross-cutting constraints:
 - `npx next build` must exit 0 before any plan is marked done
@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
-| 2. Core Sections & Animations | 2/3 | In Progress|  |
+| 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
 | 3. Media & Contact | 0/TBD | Not started | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
