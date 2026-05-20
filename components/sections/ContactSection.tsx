@@ -8,6 +8,35 @@ import styles from './ContactSection.module.scss';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
+function formatPhone(raw: string): string {
+  if (!raw) return '';
+  const digits = raw.replace(/\D/g, '');
+
+  // Strip leading country code variants: 380 or 0
+  let local: string;
+  if (digits.startsWith('380')) {
+    local = digits.slice(3);
+  } else if (digits.startsWith('0')) {
+    local = digits.slice(1);
+  } else {
+    local = digits;
+  }
+
+  // Cap at 9 digits — Ukrainian format: XX XXX XXXX
+  local = local.slice(0, 9);
+
+  const p1 = local.slice(0, 2);
+  const p2 = local.slice(2, 5);
+  const p3 = local.slice(5, 9);
+
+  let result = '+380';
+  if (p1) result += ' ' + p1;
+  if (p2) result += ' ' + p2;
+  if (p3) result += ' ' + p3;
+
+  return result;
+}
+
 export function ContactSection() {
   const containerRef = useRef<HTMLElement>(null);
   const mountTime = useRef<number>(Date.now());
@@ -16,17 +45,42 @@ export function ContactSection() {
 
   const [formState, setFormState] = useState<FormState>('idle');
   const [honeypot, setHoneypot] = useState('');
+  const [nameError, setNameError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     message: '',
   });
 
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    if (name === 'phone') {
+      setFormData((prev) => ({ ...prev, phone: formatPhone(value) }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  }
+
+  function handleNameBlur() {
+    if (formData.name.trim().length > 0 && formData.name.trim().length < 3) {
+      setNameError('Name must be at least 3 characters');
+    } else {
+      setNameError('');
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (honeypot !== '') return;                         // spam: honeypot check — silently drop
-    if (Date.now() - mountTime.current < 3000) return;  // spam: time check — silently drop
+    if (honeypot !== '') return;
+    if (Date.now() - mountTime.current < 3000) return;
+
+    if (formData.name.trim().length < 3) {
+      setNameError('Name must be at least 3 characters');
+      return;
+    }
+
     setFormState('loading');
     try {
       const response = await fetch(
@@ -43,25 +97,16 @@ export function ContactSection() {
             ref: 'main',
             inputs: {
               name: formData.name,
-              email: formData.email,
               phone: formData.phone || '',
               message: formData.message,
             },
           }),
         }
       );
-      // CRITICAL: response.ok covers 204 No Content — NEVER check === 202
       setFormState(response.ok ? 'success' : 'error');
     } catch {
       setFormState('error');
     }
-  }
-
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   return (
@@ -118,32 +163,26 @@ export function ContactSection() {
                 type="text"
                 required
                 placeholder="Your full name"
-                className={styles.input}
+                className={`${styles.input} ${nameError ? styles.inputError : ''}`}
                 value={formData.name}
                 onChange={handleChange}
+                onBlur={handleNameBlur}
                 disabled={formState === 'loading'}
               />
+              {nameError && (
+                <motion.span
+                  role="alert"
+                  className={styles.fieldError}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {nameError}
+                </motion.span>
+              )}
             </div>
 
-            {/* Email */}
-            <div className={styles.field}>
-              <label htmlFor="email" className={styles.label}>
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="your@email.com"
-                className={styles.input}
-                value={formData.email}
-                onChange={handleChange}
-                disabled={formState === 'loading'}
-              />
-            </div>
-
-            {/* Phone — optional, type="tel", NOT required */}
+            {/* Phone */}
             <div className={styles.field}>
               <label htmlFor="phone" className={styles.label}>
                 Phone (optional)
@@ -197,7 +236,6 @@ export function ContactSection() {
               )}
             </button>
 
-            {/* Inline error — Framer Motion mount animation */}
             {formState === 'error' && (
               <motion.p
                 role="alert"

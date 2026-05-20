@@ -7,10 +7,6 @@ on:
         description: 'Contact name'
         required: true
         type: string
-      email:
-        description: 'Contact email'
-        required: true
-        type: string
       phone:
         description: 'Contact phone (optional)'
         required: false
@@ -28,7 +24,6 @@ jobs:
       - name: Send Telegram notification
         run: |
           MESSAGE="New contact from *${{ github.event.inputs.name }}*%0A"
-          MESSAGE+="Email: ${{ github.event.inputs.email }}%0A"
           MESSAGE+="Phone: ${{ github.event.inputs.phone || 'not provided' }}%0A"
           MESSAGE+="----%0A"
           MESSAGE+="${{ github.event.inputs.message }}"
