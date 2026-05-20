@@ -1,10 +1,11 @@
 ---
 phase: 3
 slug: media-contact
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-05-20
+reviewed_at: 2026-05-20
 ---
 
 # Phase 3 — UI Design Contract: Media & Contact
@@ -45,7 +46,7 @@ Spacing tokens are defined in `styles/_tokens.scss` on an 8px base unit. Phase 3
 | xl | `--space-8` | 32px | Layout column gap (tablet) |
 | 2xl | `--space-12` | 48px | Title margin-bottom (matches TrophiesSection pattern) |
 | 3xl | `--space-16` | 64px | Section vertical padding (mobile) |
-| 4xl | `--space-24` | 96px | Section vertical padding (desktop) |
+| 5xl | `--space-24` | 96px | Section vertical padding, desktop |
 
 Section padding pattern (matches all Phase 2 sections exactly):
 - Mobile: `padding: var(--space-16) var(--space-4)` → 64px top/bottom, 16px sides
@@ -75,7 +76,7 @@ Section title pattern (matches TrophiesSection + AboutSection):
 
 Form field input text: `var(--text-base)` / 16px / weight 400 / `var(--font-body)`.
 Submit button label: `var(--text-base)` / 16px / weight 700 / `var(--font-heading)`, uppercase.
-Success/error message heading: `var(--text-xl)` / ~25px / weight 700 / `var(--font-heading)`, uppercase.
+Success/error message heading: `var(--text-base)` / 16px / weight 700 / `var(--font-heading)`, uppercase. Visual distinction from body text via weight 700 and uppercase transform alone — no additional size token needed.
 
 ---
 
@@ -106,6 +107,8 @@ Accent reserved for:
 ## Section Layout Contracts
 
 ### 1. HighlightsSection (`#highlights`)
+
+**Focal point:** Crimson (`var(--color-accent)`) play button overlay centered over the hovered video card thumbnail — the first thing the eye lands on in any card hover state.
 
 **Structure:**
 ```
@@ -174,6 +177,8 @@ Animation ownership: GSAP owns scroll entrance. Framer Motion owns hover + click
 
 ### 2. GallerySection (`#gallery`)
 
+**Focal point:** Hovered photo card with `var(--color-overlay)` brightness overlay at opacity 0.5 — the hover state draws the eye to the currently-targeted photo and signals click-to-expand affordance.
+
 **Structure:**
 ```
 <section id="gallery">
@@ -238,6 +243,8 @@ Animation ownership: GSAP owns scroll entrance. Framer Motion owns hover. yarl o
 ---
 
 ### 3. ContactSection (`#contact`)
+
+**Focal point:** Accent-filled "Send Message" submit button (`background: var(--color-accent)`) at the base of the form — the sole crimson element in a field of muted surfaces, directing the eye and signalling the primary action.
 
 **Structure:**
 ```
@@ -414,7 +421,7 @@ New workflow file:
 | Intro paragraph | `Behind the scenes on the pitch and in training.` |
 | Photo wrapper `aria-label` | `Open {photo.alt} in fullscreen` |
 | Lightbox close button `aria-label` | yarl default: `Close` |
-| Empty state (no photos) | Not expected in Phase 3 — placeholder images always present |
+| Gallery empty state | `No photos yet.` |
 
 ### ContactSection
 
