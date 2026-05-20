@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-05-20T13:42:07.585Z"
+stopped_at: Phase 3 complete — all 4 plans done, human verification passed
+last_updated: "2026-05-20T00:00:00.000Z"
 last_activity: 2026-05-20
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 10
-  completed_plans: 9
-  percent: 50
+  completed_plans: 10
+  percent: 75
 ---
 
 # Project State
@@ -21,22 +21,22 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** A scout or coach visiting the site immediately understands who this player is, what they can do, and how to contact them — within seconds of landing on the page.
-**Current focus:** Phase 3 — Media & Contact (plan 01 complete, Wave 2 ready)
+**Current focus:** Phase 4 — Bilingual Support & Polish (ready to plan)
 
 ## Current Position
 
-Phase: 3 of 4 (Media & Contact) — IN PROGRESS
-Plan: 3 of 4 in phase 3 — complete
-Status: Ready to execute
+Phase: 4 of 4 (Bilingual Support & Polish) — NOT STARTED
+Plan: 0 of TBD in phase 4 — pending planning
+Status: Phase 3 complete — ready to begin Phase 4
 Last activity: 2026-05-20
 
-Progress: [█████████░] 90%
+Progress: [███████░░░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 7
+- Total plans completed: 10
 - Average duration: ~3 min
 - Total execution time: 3 sessions
 
@@ -46,19 +46,18 @@ Progress: [█████████░] 90%
 |-------|-------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
-| 3. Media & Contact | 1/4 | In Progress | - |
+| 3. Media & Contact | 4/4 | Complete | 2026-05-20 |
 
 **Recent Trend:**
 
-- Last 5 plans: 02-01 ✓, 02-02 ✓, 02-03 ✓, 03-01 ✓
+- Last 5 plans: 03-01 ✓, 03-02 ✓, 03-03 ✓, 03-04 ✓
 - Trend: On track
 
 *Updated after each plan completion*
-| Phase 02-core-sections-animations P02 | 3min | 3 tasks | 6 files |
-| Phase 02-core-sections-animations P03 | 3min | 3 tasks | 9 files |
 | Phase 03-media-contact P01 | 4min | 3 tasks | 10 files |
-| Phase 03-media-contact P02 | 3 | 2 tasks | 4 files |
+| Phase 03-media-contact P02 | 3min | 2 tasks | 4 files |
 | Phase 03-media-contact P03 | 3min | 2 tasks | 2 files |
+| Phase 03-media-contact P04 | 1 session | 4 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -72,30 +71,32 @@ Recent decisions affecting current work:
 - [Setup]: basePath and assetPrefix must be configured before any CI run — missing these causes a blank page with all assets 404ing
 - [03-01]: YouTubeProps is a named type export from react-youtube — import YouTube as default, YouTubeProps as named type
 - [03-01]: Gallery src paths must always include /future-legend-dev/ basePath prefix to avoid 404 on GitHub Pages
-- [Phase ?]: YouTube iframe gated behind isPlaying state — AnimatePresence mode=wait
-- [Phase ?]: playCircle color transition owned by CSS not Framer Motion per animation ownership rule
-- [Phase ?]: HighlightsSection li.card is pure list-item reset — VideoCard supplies its own card surface
-- [Phase ?]: react-masonry-css v1.0.16 React 19 compatible
-- [Phase ?]: yarl CSS imported as JS import in GallerySection.tsx — not @import in .module.scss
-- [Phase ?]: :global() required for react-masonry-css class names in SCSS module — hashed names break masonry layout
+- [03-02]: YouTube iframe gated behind isPlaying state — AnimatePresence mode=wait; thumbnail uses hqdefault.jpg (always available)
+- [03-02]: playCircle color transition owned by CSS not Framer Motion per animation ownership rule
+- [03-03]: react-masonry-css v1.0.16 React 19 compatible — confirmed via next build
+- [03-03]: yarl CSS imported as JS import in GallerySection.tsx — not @import in .module.scss
+- [03-03]: :global() for masonry class names must be nested inside a local class (CSS Modules purity requirement)
+- [03-04]: GitHub workflow_dispatch returns 204 — success check is response.ok, never === 202
+- [03-04]: NEXT_PUBLIC_GH_PAT baked at build time — editing token permissions regenerates value, requires secret update + redeploy
+- [03-04]: Contact form email field removed per user request; name min-3-char validation + phone +380 mask added
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-- Telegram bot token and chat ID are external dependencies for Phase 3 — Telegram bot must be created and secrets added to GitHub repo before Phase 3 execution
-- PAT token security tradeoff for contact form workflow needs a decision during Phase 3 planning: accept scoped PAT risk or add Cloudflare Workers intermediary
+None — Phase 3 complete and live.
 
 ## Deferred Items
 
 | Category | Item | Status | Deferred At |
 |----------|------|--------|-------------|
-| *(none)* | | | |
+| Content | Real player photos for gallery | Deferred | Phase 3 |
+| Content | Real player highlight video IDs | Deferred | Phase 3 |
 
 ## Session Continuity
 
-Last session: 2026-05-20T13:42:07.571Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-05-20
+Stopped at: Phase 3 fully verified live — Telegram delivery confirmed, contact form working
 Resume file: None
