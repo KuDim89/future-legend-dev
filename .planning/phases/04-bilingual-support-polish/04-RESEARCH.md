@@ -686,22 +686,25 @@ function switchLocale(newLang: string) {
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **`player.ts` interface after D-12 migration — Option A vs B**
    - What we know: `bio`, `position`, `club.name`, `club.description`, `team.name`, `team.description` all move to dictionaries per D-12.
    - What's unclear: Should these fields be **removed** from `Player`/`Club`/`Team` interfaces and data objects (Option A), or kept as optional fields (Option B)?
    - Recommendation: Option A (remove) — cleaner, no duplication. Planner must specify this in the migration task for `player.ts`. Sections that currently read `data.bio`, `data.position`, etc. will error at compile time if the fields are removed — those errors guide the migration.
+   - **RESOLVED: Option A selected** — remove fields from interfaces and data objects. Captured in 04-01 Task 4.
 
 2. **Gallery and video `alt`/`title` — are they translatable content data?**
    - What we know: `photo.alt` in `content/gallery.ts` and `video.title` in `content/videos.ts` are currently English-only strings.
    - What's unclear: D-02 says "every visible string" — `alt` text and video titles are visible to screen readers and in UI.
    - Recommendation: These are **content data**, not UI strings. A Ukrainian `gallery.ts` would require duplicate content files or merging alt text into dictionaries. Per D-12 logic (data stays in `content/*.ts`), these should stay in `content/` files and are out of Phase 4 scope. The planner should confirm this scope boundary.
+   - **RESOLVED: Excluded** — content data per D-12 logic; stays in content/*.ts files, out of Phase 4 scope. Confirmed in 04-03 task scope.
 
 3. **`ctaAriaLabel` in HeroSection — hardcode name or use template?**
    - What we know: Currently `aria-label={`Contact ${data.fullName}`}`. Per D-13, `fullName` stays in `player.ts`.
    - What's unclear: The dictionary key `ctaAriaLabel` could be `"Contact Dmytro Kovalenko"` (hardcoded in dict) or a template `"Contact {name}"`.
    - Recommendation: Hardcode `"Contact Dmytro Kovalenko"` in both `en.json` and `ua.json`. Template strings in JSON add complexity for no gain here — the player name is fixed and identical in both languages (D-13).
+   - **RESOLVED: Hardcoded in both dictionaries** — `"Contact Dmytro Kovalenko"` in en.json and ua.json per D-13 (player name identical in both languages).
 
 ---
 
