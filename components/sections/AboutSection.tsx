@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Footprints } from 'lucide-react';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
 import type { Player } from '@/content/player';
+import type { Dictionary } from '@/lib/getDictionary';
 import styles from './AboutSection.module.scss';
 
 // Plugin registration at module scope — idempotent, safe in multiple files
@@ -14,9 +15,10 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface Props {
   data: Player;
+  dict: Dictionary['about'];
 }
 
-export function AboutSection({ data }: Props) {
+export function AboutSection({ data, dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
   const statRef = useRef<HTMLDivElement>(null);
 
@@ -55,44 +57,44 @@ export function AboutSection({ data }: Props) {
   );
 
   const stats = [
-    { label: 'Pace', value: data.stats.pace },
-    { label: 'Dribbling', value: data.stats.dribbling },
-    { label: 'Shooting', value: data.stats.shooting },
-    { label: 'Passing', value: data.stats.passing },
-    { label: 'Physical', value: data.stats.physical },
-    { label: 'Defending', value: data.stats.defending },
+    { label: dict.statPace, value: data.stats.pace },
+    { label: dict.statDribbling, value: data.stats.dribbling },
+    { label: dict.statShooting, value: data.stats.shooting },
+    { label: dict.statPassing, value: data.stats.passing },
+    { label: dict.statPhysical, value: data.stats.physical },
+    { label: dict.statDefending, value: data.stats.defending },
   ];
 
   return (
     <section id="about" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>About</h2>
+      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
 
       <div className={styles.layout}>
         {/* Left column: bio grid + narrative bio */}
         <div>
           <dl className={`${styles.bioGrid} reveal-item`}>
             <div className={styles.bioCell}>
-              <dt className={styles.bioField}>Name</dt>
+              <dt className={styles.bioField}>{dict.labelName}</dt>
               <dd className={styles.bioValue}>{data.fullName}</dd>
             </div>
             <div className={styles.bioCell}>
-              <dt className={styles.bioField}>Position</dt>
-              <dd className={styles.bioValue}>{data.position}</dd>
+              <dt className={styles.bioField}>{dict.labelPosition}</dt>
+              <dd className={styles.bioValue}>{dict.labelPosition}</dd>
             </div>
             <div className={styles.bioCell}>
-              <dt className={styles.bioField}>Working Foot</dt>
+              <dt className={styles.bioField}>{dict.labelWorkingFoot}</dt>
               <dd className={styles.bioValue}>
                 <Footprints size={16} aria-hidden="true" color="var(--color-text-muted)" />
-                {data.workingFoot}
+                {data.workingFoot === 'Right' ? dict.workingFootRight : data.workingFoot === 'Left' ? dict.workingFootLeft : dict.workingFootBoth}
               </dd>
             </div>
             <div className={styles.bioCell}>
-              <dt className={styles.bioField}>Date of Birth</dt>
+              <dt className={styles.bioField}>{dict.labelDob}</dt>
               <dd className={styles.bioValue}>{data.dateOfBirth}</dd>
             </div>
           </dl>
 
-          <p className={`${styles.bio} reveal-item`}>{data.bio}</p>
+          <p className={`${styles.bio} reveal-item`}>{dict.bio}</p>
         </div>
 
         {/* Right column: stat bars */}

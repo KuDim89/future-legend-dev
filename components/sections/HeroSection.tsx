@@ -6,15 +6,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Player } from '@/content/player';
+import type { Dictionary } from '@/lib/getDictionary';
 import styles from './HeroSection.module.scss';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface Props {
   data: Player;
+  dict: Dictionary['hero'];
 }
 
-export function HeroSection({ data }: Props) {
+export function HeroSection({ data, dict }: Props) {
   const heroRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const prefersReduced = useReducedMotion();
@@ -45,7 +47,8 @@ export function HeroSection({ data }: Props) {
       <div className={styles.heroContent}>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.7, delay: prefersReduced ? 0 : 0.2, ease: 'easeOut' }}
           className={styles.heroName}
         >
@@ -53,21 +56,23 @@ export function HeroSection({ data }: Props) {
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: prefersReduced ? 0 : 0.5, ease: 'easeOut' }}
           className={styles.heroPosition}
         >
-          {data.position}
+          {dict.position}
         </motion.p>
         <motion.a
           href="#contact"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: prefersReduced ? 0 : 0.8, ease: 'easeOut' }}
           className={styles.heroCta}
-          aria-label={`Contact ${data.fullName}`}
+          aria-label={dict.ctaAriaLabel}
         >
-          Contact Me
+          {dict.cta}
         </motion.a>
       </div>
     </section>
