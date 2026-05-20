@@ -9,15 +9,17 @@ import 'yet-another-react-lightbox/styles.css';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
 import type { GalleryEntry } from '@/content/gallery';
+import type { Dictionary } from '@/lib/getDictionary';
 import styles from './GallerySection.module.scss';
 
 interface Props {
   photos: GalleryEntry[];
+  dict: Dictionary['gallery'];
 }
 
 const breakpointCols = { default: 3, 768: 2, 480: 1 };
 
-export function GallerySection({ photos }: Props) {
+export function GallerySection({ photos, dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
@@ -27,13 +29,13 @@ export function GallerySection({ photos }: Props) {
 
   return (
     <section id="gallery" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>Gallery</h2>
+      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
       <p className={`${styles.intro} reveal-item`}>
-        Behind the scenes on the pitch and in training.
+        {dict.intro}
       </p>
 
       {photos.length === 0 ? (
-        <p className={styles.intro}>No photos yet.</p>
+        <p className={styles.intro}>{dict.empty}</p>
       ) : (
         <Masonry
           breakpointCols={breakpointCols}
@@ -45,7 +47,7 @@ export function GallerySection({ photos }: Props) {
               key={photo.src}
               className={`${styles.photoWrapper} reveal-item`}
               onClick={() => setLightboxIndex(index)}
-              aria-label={`Open ${photo.alt} in fullscreen`}
+              aria-label={dict.openPhotoAriaLabel}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >

@@ -4,9 +4,14 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Loader2 } from 'lucide-react';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
+import type { Dictionary } from '@/lib/getDictionary';
 import styles from './ContactSection.module.scss';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
+
+interface Props {
+  dict: Dictionary['contact'];
+}
 
 function formatPhone(raw: string): string {
   if (!raw) return '';
@@ -37,7 +42,7 @@ function formatPhone(raw: string): string {
   return result;
 }
 
-export function ContactSection() {
+export function ContactSection({ dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
   const mountTime = useRef<number>(Date.now());
 
@@ -65,7 +70,7 @@ export function ContactSection() {
 
   function handleNameBlur() {
     if (formData.name.trim().length > 0 && formData.name.trim().length < 3) {
-      setNameError('Name must be at least 3 characters');
+      setNameError(dict.errorNameMinLength);
     } else {
       setNameError('');
     }
@@ -77,7 +82,7 @@ export function ContactSection() {
     if (Date.now() - mountTime.current < 3000) return;
 
     if (formData.name.trim().length < 3) {
-      setNameError('Name must be at least 3 characters');
+      setNameError(dict.errorNameMinLength);
       return;
     }
 
@@ -111,9 +116,9 @@ export function ContactSection() {
 
   return (
     <section id="contact" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>Contact</h2>
+      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
       <p className={`${styles.intro} reveal-item`}>
-        Get in touch — whether you are a scout, coach, or club representative.
+        {dict.intro}
       </p>
 
       <AnimatePresence mode="wait">
@@ -126,8 +131,8 @@ export function ContactSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            <p className={styles.successHeading}>Message Sent</p>
-            <p>{"Your message has been sent. We'll be in touch soon."}</p>
+            <p className={styles.successHeading}>{dict.successHeading}</p>
+            <p>{dict.successBody}</p>
           </motion.div>
         ) : (
           <motion.form
@@ -155,14 +160,14 @@ export function ContactSection() {
             {/* Name */}
             <div className={styles.field}>
               <label htmlFor="name" className={styles.label}>
-                Name
+                {dict.labelName}
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
-                placeholder="Your full name"
+                placeholder={dict.placeholderName}
                 className={`${styles.input} ${nameError ? styles.inputError : ''}`}
                 value={formData.name}
                 onChange={handleChange}
@@ -185,13 +190,13 @@ export function ContactSection() {
             {/* Phone */}
             <div className={styles.field}>
               <label htmlFor="phone" className={styles.label}>
-                Phone (optional)
+                {dict.labelPhone}
               </label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="+380 XX XXX XXXX"
+                placeholder={dict.placeholderPhone}
                 className={styles.input}
                 value={formData.phone}
                 onChange={handleChange}
@@ -202,14 +207,14 @@ export function ContactSection() {
             {/* Message */}
             <div className={styles.field}>
               <label htmlFor="message" className={styles.label}>
-                Message
+                {dict.labelMessage}
               </label>
               <textarea
                 id="message"
                 name="message"
                 required
                 maxLength={1000}
-                placeholder="Tell us what you have in mind..."
+                placeholder={dict.placeholderMessage}
                 className={styles.textarea}
                 value={formData.message}
                 onChange={handleChange}
@@ -225,13 +230,13 @@ export function ContactSection() {
             >
               {formState === 'loading' ? (
                 <>
-                  <Loader2 size={18} className={styles.spinner} aria-label="Sending..." />
-                  Sending...
+                  <Loader2 size={18} className={styles.spinner} aria-label={dict.spinnerAriaLabel} />
+                  {dict.btnSending}
                 </>
               ) : (
                 <>
                   <Send size={18} />
-                  Send Message
+                  {dict.btnSend}
                 </>
               )}
             </button>
@@ -244,8 +249,7 @@ export function ContactSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.25 }}
               >
-                Something went wrong. Please try again or email us directly at{' '}
-                <a href="mailto:dimakyh@ukr.net">dimakyh@ukr.net</a>.
+                {dict.errorSubmit}
               </motion.p>
             )}
           </motion.form>

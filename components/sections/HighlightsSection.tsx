@@ -4,21 +4,23 @@ import { useRef } from 'react';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
 import { VideoCard } from '@/components/ui/VideoCard';
 import type { VideoEntry } from '@/content/videos';
+import type { Dictionary } from '@/lib/getDictionary';
 import styles from './HighlightsSection.module.scss';
 
 interface Props {
   videos: VideoEntry[];
+  dict: Dictionary['highlights'];
 }
 
-export function HighlightsSection({ videos }: Props) {
+export function HighlightsSection({ videos, dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
   useScrollReveal(containerRef);
 
   return (
     <section id="highlights" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>Highlights</h2>
+      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
       <p className={`${styles.intro} reveal-item`}>
-        Watch training sessions and match clips from the pitch.
+        {dict.intro}
       </p>
       <ul role="list" className={styles.grid}>
         {videos.map((video) => (
