@@ -1,11 +1,15 @@
 import { player } from '@/content/player';
+import { videos } from '@/content/videos';
+import { gallery } from '@/content/gallery';
 import { Nav } from '@/components/layout/Nav';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { TrophiesSection } from '@/components/sections/TrophiesSection';
 import { ClubSection } from '@/components/sections/ClubSection';
 import { TeamSection } from '@/components/sections/TeamSection';
-import { SectionStub } from '@/components/sections/SectionStub';
+import { HighlightsSection } from '@/components/sections/HighlightsSection';
+import { GallerySection } from '@/components/sections/GallerySection';
+import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function HomePage() {
   return (
@@ -17,9 +21,9 @@ export default function HomePage() {
         <TrophiesSection trophies={player.trophies} />
         <ClubSection club={player.club} />
         <TeamSection team={player.team} />
-        <SectionStub id="highlights" title="Highlights" />
-        <SectionStub id="gallery" title="Gallery" />
-        <SectionStub id="contact" title="Contact" />
+        <HighlightsSection videos={videos} />
+        <GallerySection photos={gallery} />
+        <ContactSection />
       </main>
     </>
   );

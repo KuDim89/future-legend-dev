@@ -35,17 +35,18 @@
 
 // react-masonry-css injects these class names directly onto DOM elements.
 // CSS Modules would hash scoped class names so the selectors would never match.
-// :global() is required here so the styles apply to the literal class names
-// that react-masonry-css writes to the DOM.
-:global(.masonry-grid) {
-  display: flex;
-  margin-left: calc(-1 * var(--space-6));
-  width: auto;
-}
+// :global() is nested inside .section so the rule has a local ancestor (purity satisfied).
+.section {
+  :global(.masonry-grid) {
+    display: flex;
+    margin-left: calc(-1 * var(--space-6));
+    width: auto;
+  }
 
-:global(.masonry-grid_column) {
-  padding-left: var(--space-6);
-  background-clip: padding-box;
+  :global(.masonry-grid_column) {
+    padding-left: var(--space-6);
+    background-clip: padding-box;
+  }
 }
 
 .intro {
