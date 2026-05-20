@@ -30,7 +30,7 @@ export default async function RootLayout({
       className={`${oswald.variable} ${roboto.variable}`}
       suppressHydrationWarning
     >
-      <body>
+      <body suppressHydrationWarning>
         <Providers>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
         </Providers>
