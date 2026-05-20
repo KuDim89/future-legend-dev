@@ -37,11 +37,11 @@ Full details: [milestones/v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md)
   1. Visitor sees "Artem Kukharuk", "Defender", "Viva Cup", and age 9 on every section that displays player identity (hero, about, profile)
   2. Visitor reads a coherent, accurate biography in Ukrainian and in English — no placeholder text visible
   3. YouTube video slots either show real highlight video IDs or display a clean placeholder message; raw YouTube ID strings are never visible to visitors
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: Identity data swap — update content files and both locale dictionaries
-- [ ] 05-02: Video slot update — wire real IDs or add clean placeholder messaging
+- [ ] 05-01-PLAN.md — Identity data swap: player.ts, both locale dictionaries, gallery alt text, page metadata
+- [ ] 05-02-PLAN.md — Video slot update: VideoEntry isPlaceholder flag, VideoCard disabled variant, HighlightsSection wiring
 
 ### Phase 6: Asset Prompts & Guide
 **Goal**: The user has everything needed to generate the required images — a set of Midjourney prompts and a drop-in integration guide — before touching any code
