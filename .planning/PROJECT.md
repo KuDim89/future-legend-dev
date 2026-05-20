@@ -8,6 +8,17 @@ A cinematic personal portfolio website for a young football player, deployed liv
 
 A scout or coach visiting the site immediately understands who this player is, what they can do, and how to contact them — within seconds of landing on the page.
 
+## Current Milestone: v1.1 Real Content
+
+**Goal:** Replace all placeholder content with Artem Kukharuk's real identity so the site looks scout-ready with no obvious placeholders.
+
+**Target features:**
+- Player identity swap (name, position, club, age) across all content files and both locale dictionaries
+- Player bio rewrite in Ukrainian and English
+- Midjourney prompt deliverables for hero photo, gallery, and club crest
+- Asset integration guide (file naming, dimensions, slot locations)
+- YouTube video slot update or clear documentation of placeholder status
+
 ## Requirements
 
 ### Validated
@@ -32,10 +43,14 @@ A scout or coach visiting the site immediately understands who this player is, w
 
 ### Active
 
-- [ ] **PLAYER-02**: Real player photo in hero section background (structural slot built; requires real asset)
-- [ ] Real player club and team crests (logos currently null → placeholder text rendered)
-- [ ] Real player highlight video IDs (currently using placeholder YouTube IDs)
-- [ ] Real gallery photos of the specific player (currently using Unsplash football photos)
+- [ ] **IDENT-01**: Player identity updated to Artem Kukharuk (name, position: Defender, club: Viva Cup, age: 9) across all content files
+- [ ] **IDENT-02**: Player bio rewritten in Ukrainian and English to reflect real player
+- [ ] **ASSET-01**: Midjourney prompts delivered for hero background, gallery photos, and club crest
+- [ ] **ASSET-02**: Asset integration guide created (file naming, dimensions, drop-in instructions)
+- [ ] **ASSET-03**: Hero photo slot wired with real or AI-generated image
+- [ ] **ASSET-04**: Gallery photos replaced (real or AI-generated via Midjourney prompts)
+- [ ] **ASSET-05**: Club crest replaced (real or AI-generated via Midjourney prompts)
+- [ ] **VIDEO-01**: YouTube video slot updated with real highlight video IDs or clearly documented placeholder
 
 ### Out of Scope
 
@@ -98,4 +113,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-20 after v1.0 milestone*
+*Last updated: 2026-05-20 after v1.1 milestone start*
