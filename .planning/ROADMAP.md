@@ -97,7 +97,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [x] 03-02-PLAN.md — HighlightsSection + VideoCard: lite-embed video grid (thumbnail → YouTube on click, MEDIA-01 + MEDIA-03)
-- [ ] 03-03-PLAN.md — GallerySection: masonry photo grid + yarl Fullscreen+Zoom lightbox (MEDIA-02 + MEDIA-03)
+- [x] 03-03-PLAN.md — GallerySection: masonry photo grid + yarl Fullscreen+Zoom lightbox (MEDIA-02 + MEDIA-03)
 
 **Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 03-04-PLAN.md — ContactSection + contact.yml + page assembly: form state machine, GitHub workflow_dispatch → Telegram, spam guards, replace 3 SectionStubs, final build verification
@@ -130,5 +130,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
-| 3. Media & Contact | 2/4 | In Progress|  |
+| 3. Media & Contact | 3/4 | In Progress|  |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
