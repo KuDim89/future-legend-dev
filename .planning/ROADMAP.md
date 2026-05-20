@@ -88,8 +88,26 @@ Cross-cutting constraints:
   2. Visitor can open a photo in fullscreen lightbox view, navigate between photos, and close the lightbox — without degrading page load performance
   3. Visitor can submit the contact form with name, email, and message — and a Telegram notification arrives in the player's Telegram account within seconds
   4. The bot token and chat ID are not visible in any client-side code, network request, or browser DevTools — they exist only in GitHub Secrets
-**Plans**: TBD
+**Plans**: 4 plans
 **UI hint**: yes
+
+Plans:
+**Wave 1**
+- [ ] 03-01-PLAN.md — Foundation: install react-youtube/react-masonry-css/yarl, create content/videos.ts (3 entries), content/gallery.ts (6 entries), 6 placeholder WebP images
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 03-02-PLAN.md — HighlightsSection + VideoCard: lite-embed video grid (thumbnail → YouTube on click, MEDIA-01 + MEDIA-03)
+- [ ] 03-03-PLAN.md — GallerySection: masonry photo grid + yarl Fullscreen+Zoom lightbox (MEDIA-02 + MEDIA-03)
+
+**Wave 3** *(blocked on Wave 2 completion)*
+- [ ] 03-04-PLAN.md — ContactSection + contact.yml + page assembly: form state machine, GitHub workflow_dispatch → Telegram, spam guards, replace 3 SectionStubs, final build verification
+
+Cross-cutting constraints:
+- `npx next build` must exit 0 before any plan is marked done
+- Lite-embed: `<YouTube>` renders ONLY when `isPlaying === true` — never unconditionally (react-youtube renders a full iframe on mount)
+- GitHub workflow_dispatch returns 204 No Content — success check must use `response.ok`, NOT `response.status === 202`
+- GSAP animation ownership: useScrollReveal hook for scroll entrance; Framer Motion for hover/click/form-state transitions — no element animated by both
+- Telegram secrets (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID) exist only as `${{ secrets.* }}` in contact.yml — never in any client file
 
 ### Phase 4: Bilingual Support & Polish
 **Goal**: The site is fully available in both Ukrainian and English at separate pre-rendered URL paths, with a persistent language switcher accessible on every section
@@ -112,5 +130,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
-| 3. Media & Contact | 0/TBD | Not started | - |
+| 3. Media & Contact | 0/4 | Planned | - |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
