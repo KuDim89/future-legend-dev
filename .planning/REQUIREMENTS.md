@@ -40,7 +40,7 @@
 
 - [x] **MEDIA-01**: Visitor can watch embedded YouTube highlight videos (training and match clips) using a lite-embed pattern (thumbnail shown first, iframe loads on click)
 - [x] **MEDIA-02**: Visitor can browse a photo gallery of training and match images with a lightbox viewer (zoom, navigation, fullscreen)
-- [ ] **MEDIA-03**: Video and gallery sections do not block page load or hurt Lighthouse performance score (lazy loading enforced)
+- [x] **MEDIA-03**: Video and gallery sections do not block page load or hurt Lighthouse performance score (lazy loading enforced)
 
 ### Supporting Content Sections
 
@@ -131,7 +131,7 @@
 | SECT-03 | Phase 2 | Pending |
 | MEDIA-01 | Phase 3 | Complete |
 | MEDIA-02 | Phase 3 | Complete |
-| MEDIA-03 | Phase 3 | Pending |
+| MEDIA-03 | Phase 3 | Complete |
 | CONTACT-01 | Phase 3 | Pending |
 | CONTACT-02 | Phase 3 | Pending |
 | CONTACT-03 | Phase 3 | Pending |

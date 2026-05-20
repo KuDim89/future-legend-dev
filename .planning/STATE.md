@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 3 context gathered — 4 areas discussed (contact pipeline, video layout, gallery sourcing, form UX)
-last_updated: "2026-05-20T13:30:05.116Z"
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-05-20T13:36:38.396Z"
 last_activity: 2026-05-20
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 10
-  completed_plans: 7
-  percent: 70
+  completed_plans: 8
+  percent: 50
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 3 of 4 (Media & Contact) — IN PROGRESS
-Plan: 1 of 4 in phase 3 — complete
-Status: Plan 03-01 complete — media packages installed, content data files created, WebP placeholders committed
+Plan: 2 of 4 in phase 3 — complete
+Status: Ready to execute
 Last activity: 2026-05-20
 
-Progress: [███████░░░] 70%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [███████░░░] 70%
 | Phase 02-core-sections-animations P02 | 3min | 3 tasks | 6 files |
 | Phase 02-core-sections-animations P03 | 3min | 3 tasks | 9 files |
 | Phase 03-media-contact P01 | 4min | 3 tasks | 10 files |
+| Phase 03-media-contact P02 | 3 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,9 @@ Recent decisions affecting current work:
 - [Setup]: basePath and assetPrefix must be configured before any CI run — missing these causes a blank page with all assets 404ing
 - [03-01]: YouTubeProps is a named type export from react-youtube — import YouTube as default, YouTubeProps as named type
 - [03-01]: Gallery src paths must always include /future-legend-dev/ basePath prefix to avoid 404 on GitHub Pages
+- [Phase ?]: YouTube iframe gated behind isPlaying state — AnimatePresence mode=wait
+- [Phase ?]: playCircle color transition owned by CSS not Framer Motion per animation ownership rule
+- [Phase ?]: HighlightsSection li.card is pure list-item reset — VideoCard supplies its own card surface
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-20T13:29:00Z
-Stopped at: Completed 03-01-PLAN.md — media packages installed, content/videos.ts + content/gallery.ts + 6 WebP images
-Resume file: .planning/phases/03-media-contact/03-02-PLAN.md
+Last session: 2026-05-20T13:36:38.384Z
+Stopped at: Completed 03-02-PLAN.md
+Resume file: None
