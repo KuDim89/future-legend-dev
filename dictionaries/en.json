@@ -1,1 +1,83 @@
-{}
+{
+  "nav": {
+    "brand": "Future Legend",
+    "home": "Home",
+    "about": "About",
+    "highlights": "Highlights",
+    "gallery": "Gallery",
+    "trophies": "Trophies",
+    "club": "Club",
+    "team": "Team",
+    "contact": "Contact",
+    "menuAriaLabel": "Toggle navigation menu"
+  },
+  "hero": {
+    "position": "Central Midfielder",
+    "cta": "Contact Me",
+    "ctaAriaLabel": "Contact Dmytro Kovalenko"
+  },
+  "about": {
+    "title": "About",
+    "labelName": "Name",
+    "labelPosition": "Position",
+    "labelWorkingFoot": "Working Foot",
+    "labelDob": "Date of Birth",
+    "workingFootRight": "Right",
+    "workingFootLeft": "Left",
+    "workingFootBoth": "Both",
+    "bio": "A technically gifted midfielder who reads the game two steps ahead, Dmytro has built a reputation for his precise passing and relentless pressing that disrupts the opposition before they can settle. Raised through the Dynamo Kyiv youth academy, he combines tactical discipline with the ability to unlock compact defensive shapes. At eighteen he is already the heartbeat of his team — the player who touches the ball most and loses it least.",
+    "statPace": "Pace",
+    "statDribbling": "Dribbling",
+    "statShooting": "Shooting",
+    "statPassing": "Passing",
+    "statPhysical": "Physical",
+    "statDefending": "Defending"
+  },
+  "trophies": {
+    "title": "Trophies",
+    "items": [
+      { "name": "Youth League Champion", "competition": "UPL Youth League U18" },
+      { "name": "Cup Winner", "competition": "Kyiv Regional Youth Cup" },
+      { "name": "Tournament MVP", "competition": "Dana Cup Denmark" }
+    ]
+  },
+  "club": {
+    "title": "Club",
+    "name": "Dynamo Kyiv U21",
+    "description": "One of Ukraine's most decorated clubs, Dynamo Kyiv has produced generations of international footballers. The U21 structure trains alongside the first team, immersing young players in professional standards from day one.",
+    "crestPlaceholder": "Club crest"
+  },
+  "team": {
+    "title": "Team",
+    "name": "Ukraine U18 National Team",
+    "description": "Representing the national team colours at youth level, Dmytro carries his club form into international competition across UEFA development tournaments.",
+    "crestPlaceholder": "Team crest"
+  },
+  "highlights": {
+    "title": "Highlights",
+    "intro": "Watch training sessions and match clips from the pitch."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "intro": "Behind the scenes on the pitch and in training.",
+    "empty": "No photos yet.",
+    "openPhotoAriaLabel": "Open photo in fullscreen"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Get in touch — whether you are a scout, coach, or club representative.",
+    "successHeading": "Message Sent",
+    "successBody": "Your message has been sent. We'll be in touch soon.",
+    "labelName": "Name",
+    "placeholderName": "Your full name",
+    "errorNameMinLength": "Name must be at least 3 characters",
+    "labelPhone": "Phone (optional)",
+    "placeholderPhone": "+380 XX XXX XXXX",
+    "labelMessage": "Message",
+    "placeholderMessage": "Tell us what you have in mind...",
+    "btnSend": "Send Message",
+    "btnSending": "Sending...",
+    "spinnerAriaLabel": "Sending...",
+    "errorSubmit": "Something went wrong. Please try again or email us directly at dimakyh@ukr.net"
+  }
+}
