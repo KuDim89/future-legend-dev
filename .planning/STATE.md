@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 3 planned — 4 plans in 3 waves, ready for execute-phase 3
-last_updated: "2026-05-20T00:00:00.000Z"
+stopped_at: Phase 3 context gathered — 4 areas discussed (contact pipeline, video layout, gallery sourcing, form UX)
+last_updated: "2026-05-20T13:30:05.116Z"
 last_activity: 2026-05-20
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 10
-  completed_plans: 6
-  percent: 50
+  completed_plans: 7
+  percent: 70
 ---
 
 # Project State
@@ -21,24 +21,24 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** A scout or coach visiting the site immediately understands who this player is, what they can do, and how to contact them — within seconds of landing on the page.
-**Current focus:** Phase 3 — Media & Contact (context gathered, ready for planning)
+**Current focus:** Phase 3 — Media & Contact (plan 01 complete, Wave 2 ready)
 
 ## Current Position
 
-Phase: 3 of 4 (Media & Contact) — PLANNED, ready to execute
-Plan: 0 of 4 in phase 3 — pending execution
-Status: Phase 3 planned — 4 plans across 3 waves
+Phase: 3 of 4 (Media & Contact) — IN PROGRESS
+Plan: 1 of 4 in phase 3 — complete
+Status: Plan 03-01 complete — media packages installed, content data files created, WebP placeholders committed
 Last activity: 2026-05-20
 
-Progress: [████████░░] 50%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 6
+- Total plans completed: 7
 - Average duration: ~3 min
-- Total execution time: 2 sessions
+- Total execution time: 3 sessions
 
 **By Phase:**
 
@@ -46,15 +46,17 @@ Progress: [████████░░] 50%
 |-------|-------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
+| 3. Media & Contact | 1/4 | In Progress | - |
 
 **Recent Trend:**
 
-- Last 5 plans: 01-01 ✓, 01-02 ✓, 01-03 ✓, 02-01 ✓, 02-02 ✓, 02-03 ✓
+- Last 5 plans: 02-01 ✓, 02-02 ✓, 02-03 ✓, 03-01 ✓
 - Trend: On track
 
 *Updated after each plan completion*
 | Phase 02-core-sections-animations P02 | 3min | 3 tasks | 6 files |
 | Phase 02-core-sections-animations P03 | 3min | 3 tasks | 9 files |
+| Phase 03-media-contact P01 | 4min | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -66,6 +68,8 @@ Recent decisions affecting current work:
 - [Setup]: Next.js static export + `app/[lang]/` dynamic segment — Next.js built-in i18n config is incompatible with static export
 - [Setup]: GSAP must run inside `useGSAP()` in `'use client'` components — prevents "window is not defined" during static build prerendering
 - [Setup]: basePath and assetPrefix must be configured before any CI run — missing these causes a blank page with all assets 404ing
+- [03-01]: YouTubeProps is a named type export from react-youtube — import YouTube as default, YouTubeProps as named type
+- [03-01]: Gallery src paths must always include /future-legend-dev/ basePath prefix to avoid 404 on GitHub Pages
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-20T00:00:00.000Z
-Stopped at: Phase 3 context gathered — 4 areas discussed (contact pipeline, video layout, gallery sourcing, form UX)
-Resume file: .planning/phases/03-media-contact/03-CONTEXT.md
+Last session: 2026-05-20T13:29:00Z
+Stopped at: Completed 03-01-PLAN.md — media packages installed, content/videos.ts + content/gallery.ts + 6 WebP images
+Resume file: .planning/phases/03-media-contact/03-02-PLAN.md

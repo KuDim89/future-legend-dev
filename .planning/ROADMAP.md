@@ -93,7 +93,7 @@ Cross-cutting constraints:
 
 Plans:
 **Wave 1**
-- [ ] 03-01-PLAN.md — Foundation: install react-youtube/react-masonry-css/yarl, create content/videos.ts (3 entries), content/gallery.ts (6 entries), 6 placeholder WebP images
+- [x] 03-01-PLAN.md — Foundation: install react-youtube/react-masonry-css/yarl, create content/videos.ts (3 entries), content/gallery.ts (6 entries), 6 placeholder WebP images
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 03-02-PLAN.md — HighlightsSection + VideoCard: lite-embed video grid (thumbnail → YouTube on click, MEDIA-01 + MEDIA-03)
@@ -130,5 +130,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
-| 3. Media & Contact | 0/4 | Planned | - |
+| 3. Media & Contact | 1/4 | In Progress|  |
 | 4. Bilingual Support & Polish | 0/TBD | Not started | - |
