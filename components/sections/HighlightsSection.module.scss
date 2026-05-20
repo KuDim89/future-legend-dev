@@ -1,0 +1,62 @@
+// HighlightsSection.module.scss
+// Mixins auto-injected via sassOptions.additionalData — no @use needed
+// Tokens: use var(--token) — NOT $scss-variable
+
+.section {
+  padding: var(--space-16) var(--space-4);
+
+  @include respond-to('lg') {
+    padding: var(--space-24) var(--space-8);
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: var(--space-12);
+
+  @include respond-to('md') {
+    font-size: var(--text-4xl);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: var(--space-2);
+  }
+}
+
+.intro {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  list-style: none; // list-item reset only — VideoCard supplies its own card surface
+}
