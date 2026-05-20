@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Phase 4 planned — 4 plans in 3 waves ready for execution
-last_updated: "2026-05-20T00:00:00.000Z"
+status: completed
+stopped_at: Phase 3 fully verified live — Telegram delivery confirmed, contact form working
+last_updated: "2026-05-20T19:10:31.562Z"
 last_activity: 2026-05-20
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 10
-  completed_plans: 10
-  percent: 75
+  total_plans: 14
+  completed_plans: 12
+  percent: 79
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 
 ## Current Position
 
-Phase: 4 of 4 (Bilingual Support & Polish) — NOT STARTED
-Plan: 0 of TBD in phase 4 — pending planning
-Status: Phase 3 complete — ready to begin Phase 4
+Phase: 4 of 4 (Bilingual Support & Polish) — IN PROGRESS
+Plan: 1 of 4 in phase 4 — Dictionary Foundation complete
+Status: Phase 4 in progress — Plan 04-01 complete
 Last activity: 2026-05-20
 
-Progress: [███████░░░] 75%
+Progress: [████████░░] 79%
 
 ## Performance Metrics
 
@@ -50,7 +50,7 @@ Progress: [███████░░░] 75%
 
 **Recent Trend:**
 
-- Last 5 plans: 03-01 ✓, 03-02 ✓, 03-03 ✓, 03-04 ✓
+- Last 5 plans: 03-02 ✓, 03-03 ✓, 03-04 ✓, 04-01 ✓
 - Trend: On track
 
 *Updated after each plan completion*
@@ -58,6 +58,7 @@ Progress: [███████░░░] 75%
 | Phase 03-media-contact P02 | 3min | 2 tasks | 4 files |
 | Phase 03-media-contact P03 | 3min | 2 tasks | 2 files |
 | Phase 03-media-contact P04 | 1 session | 4 tasks | 5 files |
+| Phase 04-bilingual-support-polish P01 | ~5min | 4 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [03-04]: GitHub workflow_dispatch returns 204 — success check is response.ok, never === 202
 - [03-04]: NEXT_PUBLIC_GH_PAT baked at build time — editing token permissions regenerates value, requires secret update + redeploy
 - [03-04]: Contact form email field removed per user request; name min-3-char validation + phone +380 mask added
+- [04-01]: D-12 Option A — translatable fields removed entirely from interfaces (not kept as optional)
+- [04-01]: getDictionary uses dynamic import() for static export compatibility
+- [04-01]: Root redirect uses localStorage 'locale' key whitelisted to 'ua'|'en', defaults to 'ua'
 
 ### Pending Todos
 
@@ -98,5 +102,5 @@ None — Phase 3 complete and live.
 ## Session Continuity
 
 Last session: 2026-05-20
-Stopped at: Phase 3 fully verified live — Telegram delivery confirmed, contact form working
+Stopped at: Phase 4 Plan 04-01 complete — Dictionary Foundation done, player.ts migrated, getDictionary loader created
 Resume file: None
