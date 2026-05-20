@@ -6,17 +6,17 @@ export interface VideoEntry {
 
 export const videos: VideoEntry[] = [
   {
-    videoId: 'H6G1gKv7PUs',
-    title: 'Match Highlights — UEFA Champions League',
+    videoId: 'Y0H9y0l67bo',
+    title: 'Match Highlights — UCL Quarter-Final',
     category: 'match',
   },
   {
-    videoId: 'ysz5S6PQzGU',
+    videoId: 'kAvYK_gAr90',
     title: 'Training Session — Dribbling Drills',
     category: 'training',
   },
   {
-    videoId: 'gqUvxL2cN5Y',
+    videoId: 'Oj0nkoFJZws',
     title: 'Skills Compilation — Best Moments',
     category: 'skills',
   },

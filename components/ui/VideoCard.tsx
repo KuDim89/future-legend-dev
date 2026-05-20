@@ -35,7 +35,7 @@ export function VideoCard({ video }: Props) {
               whileHover="hover"
             >
               <img
-                src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+                src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
                 alt={`${video.title} — highlight video`}
                 loading="lazy"
                 className={styles.thumbnail}
