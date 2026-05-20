@@ -1,0 +1,84 @@
+// VideoCard.module.scss
+// Mixins auto-injected via sassOptions.additionalData — no @use needed
+// Tokens: use var(--token) — NOT $scss-variable
+
+.card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden; // clips thumbnail to border-radius
+}
+
+.thumbnailSlot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnailBtn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease; // CSS owns color transition — NOT Framer Motion
+
+  &:hover {
+    background: var(--color-accent-hover);
+  }
+}
+
+.playIcon {
+  margin-left: 2px; // visual centering correction for triangle shape
+}
+
+.playerWrapper,
+.youtubePlayer,
+.youtubeIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  padding: var(--space-4);
+}
