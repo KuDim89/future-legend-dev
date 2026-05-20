@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 3 fully verified live — Telegram delivery confirmed, contact form working
-last_updated: "2026-05-20T19:10:31.562Z"
+status: complete
+stopped_at: Phase 4 complete — bilingual system live, both locale routes pre-rendered, zero TypeScript errors
+last_updated: "2026-05-20T00:00:00.000Z"
 last_activity: 2026-05-20
 progress:
   total_phases: 4
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 14
-  completed_plans: 12
-  percent: 79
+  completed_plans: 14
+  percent: 100
 ---
 
 # Project State
@@ -21,24 +21,24 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** A scout or coach visiting the site immediately understands who this player is, what they can do, and how to contact them — within seconds of landing on the page.
-**Current focus:** Phase 4 — Bilingual Support & Polish (ready to plan)
+**Current focus:** All phases complete — milestone v1.0 done
 
 ## Current Position
 
-Phase: 4 of 4 (Bilingual Support & Polish) — IN PROGRESS
-Plan: 1 of 4 in phase 4 — Dictionary Foundation complete
-Status: Phase 4 in progress — Plan 04-01 complete
+Phase: 4 of 4 (Bilingual Support & Polish) — COMPLETE
+Plan: 4 of 4 in phase 4 — all done
+Status: All 4 phases complete — milestone v1.0 achieved
 Last activity: 2026-05-20
 
-Progress: [████████░░] 79%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 10
-- Average duration: ~3 min
-- Total execution time: 3 sessions
+- Total plans completed: 14
+- Average duration: ~5 min
+- Total execution time: 4 sessions
 
 **By Phase:**
 
@@ -47,18 +47,12 @@ Progress: [████████░░] 79%
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
 | 3. Media & Contact | 4/4 | Complete | 2026-05-20 |
+| 4. Bilingual Support & Polish | 4/4 | Complete | 2026-05-20 |
 
 **Recent Trend:**
 
-- Last 5 plans: 03-02 ✓, 03-03 ✓, 03-04 ✓, 04-01 ✓
-- Trend: On track
-
-*Updated after each plan completion*
-| Phase 03-media-contact P01 | 4min | 3 tasks | 10 files |
-| Phase 03-media-contact P02 | 3min | 2 tasks | 4 files |
-| Phase 03-media-contact P03 | 3min | 2 tasks | 2 files |
-| Phase 03-media-contact P04 | 1 session | 4 tasks | 5 files |
-| Phase 04-bilingual-support-polish P01 | ~5min | 4 tasks | 5 files |
+- Last 5 plans: 04-01 ✓, 04-02 ✓, 04-03 ✓, 04-04 ✓
+- Trend: Milestone complete
 
 ## Accumulated Context
 
@@ -83,14 +77,18 @@ Recent decisions affecting current work:
 - [04-01]: D-12 Option A — translatable fields removed entirely from interfaces (not kept as optional)
 - [04-01]: getDictionary uses dynamic import() for static export compatibility
 - [04-01]: Root redirect uses localStorage 'locale' key whitelisted to 'ua'|'en', defaults to 'ua'
+- [04-02]: LanguageSwitcher mounted guard replicates ThemeToggle.tsx pattern — prevents hydration mismatch
+- [04-02]: switchLocale preserves URL hash during locale switch; no GSAP in LanguageSwitcher
+- [04-03]: TrophiesSection uses index-based zip — dict.trophies.items[i] for name/competition, trophy.year from data
+- [04-04]: Both locale HTML files pre-rendered — out/ua/index.html and out/en/index.html with zero TypeScript errors
 
 ### Pending Todos
 
-None.
+None — milestone complete.
 
 ### Blockers/Concerns
 
-None — Phase 3 complete and live.
+None — Phase 4 complete, build verified.
 
 ## Deferred Items
 
@@ -102,5 +100,5 @@ None — Phase 3 complete and live.
 ## Session Continuity
 
 Last session: 2026-05-20
-Stopped at: Phase 4 Plan 04-01 complete — Dictionary Foundation done, player.ts migrated, getDictionary loader created
+Stopped at: Phase 4 complete — bilingual system live, both locale routes pre-rendered, zero TypeScript errors
 Resume file: None

@@ -14,8 +14,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Design System** - Static export + GitHub Pages CI/CD + SCSS design tokens + light/dark theme + smooth scroll scaffold
 - [x] **Phase 2: Core Sections & Animations** - Hero, player profile, about, trophies, club, team — all sections built and animated
-- [ ] **Phase 3: Media & Contact** - YouTube lite-embed highlights, photo gallery lightbox, contact form + Telegram pipeline
-- [ ] **Phase 4: Bilingual Support & Polish** - UA/EN language system, locale switcher, dictionary files, build-time locale pre-rendering
+- [x] **Phase 3: Media & Contact** - YouTube lite-embed highlights, photo gallery lightbox, contact form + Telegram pipeline
+- [x] **Phase 4: Bilingual Support & Polish** - UA/EN language system, locale switcher, dictionary files, build-time locale pre-rendering
 
 ## Phase Details
 
@@ -123,14 +123,14 @@ Cross-cutting constraints:
 
 Plans:
 **Wave 1**
-- [ ] 04-01-PLAN.md — Dictionary foundation: fill en.json + ua.json (all ~60 keys), create lib/getDictionary.ts loader, rewrite app/page.tsx client redirect, migrate content/player.ts interfaces (D-12 Option A)
+- [x] 04-01-PLAN.md — Dictionary foundation: fill en.json + ua.json (all ~60 keys), create lib/getDictionary.ts loader, rewrite app/page.tsx client redirect, migrate content/player.ts interfaces (D-12 Option A)
 
 **Wave 2** *(blocked on Wave 1 completion — 04-02 and 04-03 run in parallel)*
-- [ ] 04-02-PLAN.md — LanguageSwitcher + Nav integration: create LanguageSwitcher.tsx + SCSS, update Nav with dict prop and LanguageSwitcher in desktop controls and mobile menu
-- [ ] 04-03-PLAN.md — Section migration: add dict prop to all 8 section components, replace every hardcoded string with dict key lookups, resolve all TypeScript errors from player.ts migration
+- [x] 04-02-PLAN.md — LanguageSwitcher + Nav integration: create LanguageSwitcher.tsx + SCSS, update Nav with dict prop and LanguageSwitcher in desktop controls and mobile menu
+- [x] 04-03-PLAN.md — Section migration: add dict prop to all 8 section components, replace every hardcoded string with dict key lookups, resolve all TypeScript errors from player.ts migration
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 04-04-PLAN.md — Final wiring + build verification: thread getDictionary into app/[lang]/page.tsx, pass dict slices to all components, run npx next build confirming out/ua/ and out/en/ pre-render
+- [x] 04-04-PLAN.md — Final wiring + build verification: thread getDictionary into app/[lang]/page.tsx, pass dict slices to all components, run npx next build confirming out/ua/ and out/en/ pre-render
 
 Cross-cutting constraints:
 - `npx next build` must exit 0 before any plan is marked done
@@ -151,4 +151,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation & Design System | 3/3 | Complete | 2026-05-19 |
 | 2. Core Sections & Animations | 3/3 | Complete | 2026-05-20 |
 | 3. Media & Contact | 4/4 | Complete | 2026-05-20 |
-| 4. Bilingual Support & Polish | 0/4 | Not started | - |
+| 4. Bilingual Support & Polish | 4/4 | Complete | 2026-05-20 |
