@@ -1,0 +1,43 @@
+name: Contact Form Notification
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Contact name'
+        required: true
+        type: string
+      email:
+        description: 'Contact email'
+        required: true
+        type: string
+      phone:
+        description: 'Contact phone (optional)'
+        required: false
+        type: string
+        default: ''
+      message:
+        description: 'Contact message'
+        required: true
+        type: string
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram notification
+        run: |
+          MESSAGE="New contact from *${{ github.event.inputs.name }}*%0A"
+          MESSAGE+="Email: ${{ github.event.inputs.email }}%0A"
+          MESSAGE+="Phone: ${{ github.event.inputs.phone || 'not provided' }}%0A"
+          MESSAGE+="----%0A"
+          MESSAGE+="${{ github.event.inputs.message }}"
+
+          curl -s -X POST \
+            "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "text=${MESSAGE}" \
+            -d "parse_mode=Markdown"
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

@@ -40,6 +40,8 @@ jobs:
 
       - name: Build
         run: npx next build
+        env:
+          NEXT_PUBLIC_GH_PAT: ${{ secrets.GH_PAT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
