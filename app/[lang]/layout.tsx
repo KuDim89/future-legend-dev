@@ -11,8 +11,8 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Dmytro Kovalenko — Football Player',
-  description: 'Scout profile for Dmytro Kovalenko, Central Midfielder. View stats, trophies, and club info.',
+  title: 'Artem Kukharuk — Football Player',
+  description: 'Scout profile for Artem Kukharuk, Defender. View stats, trophies, and club info.',
 };
 
 export default async function RootLayout({
