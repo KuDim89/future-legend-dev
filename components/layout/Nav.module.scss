@@ -33,11 +33,17 @@
 }
 
 .brand {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  color: var(--color-text);
-  font-weight: 700;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brandLogo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .links {

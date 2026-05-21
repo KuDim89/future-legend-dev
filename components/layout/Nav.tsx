@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -38,7 +39,16 @@ export function Nav({ dict }: Props) {
     <>
       <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
-          <a href="#home" className={styles.brand}>{dict.brand}</a>
+          <a href="#home" className={styles.brand} aria-label={dict.brand}>
+            <Image
+              src="/logo.png"
+              alt={dict.brand}
+              width={44}
+              height={44}
+              className={styles.brandLogo}
+              priority
+            />
+          </a>
 
           <ul className={styles.links}>
             {navLinks.map((link) => (
