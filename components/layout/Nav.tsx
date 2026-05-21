@@ -90,7 +90,6 @@ export function Nav({ dict }: Props) {
                 {link.label}
               </a>
             ))}
-            <LanguageSwitcher />
           </motion.div>
         )}
       </AnimatePresence>
