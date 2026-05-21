@@ -40,8 +40,16 @@ Full details: [milestones/v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md)
 **Plans**: 2 plans
 
 Plans:
+
+**Wave 1**
 - [ ] 05-01-PLAN.md — Identity data swap: player.ts, both locale dictionaries, gallery alt text, page metadata
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 05-02-PLAN.md — Video slot update: VideoEntry isPlaceholder flag, VideoCard disabled variant, HighlightsSection wiring
+
+**Cross-cutting constraints:**
+- Both trophies.items arrays (en.json + ua.json) must remain the same length (index-based zip in TrophiesSection)
+- highlights.comingSoon key added in Wave 1 must exist before Wave 2 is compiled
 
 ### Phase 6: Asset Prompts & Guide
 **Goal**: The user has everything needed to generate the required images — a set of Midjourney prompts and a drop-in integration guide — before touching any code
