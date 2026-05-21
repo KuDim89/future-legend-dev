@@ -29,7 +29,7 @@ export function HighlightsSection({ videos, dict }: Props) {
             role="listitem"
             className={`${styles.card} reveal-item`}
           >
-            <VideoCard video={video} />
+            <VideoCard video={video} comingSoonLabel={video.isPlaceholder ? dict.comingSoon : undefined} />
           </li>
         ))}
       </ul>
