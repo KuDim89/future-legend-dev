@@ -47,7 +47,7 @@ export const player: Player = {
     { year: 2026 },
   ],
   club: {
-    logo: null,
+    logo: '/future-legend-dev/club.png',
   },
   team: {
     logo: null,
