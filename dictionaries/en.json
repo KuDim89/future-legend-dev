@@ -12,9 +12,9 @@
     "menuAriaLabel": "Toggle navigation menu"
   },
   "hero": {
-    "position": "Central Midfielder",
+    "position": "Defender",
     "cta": "Contact Me",
-    "ctaAriaLabel": "Contact Dmytro Kovalenko"
+    "ctaAriaLabel": "Contact Artem Kukharuk"
   },
   "about": {
     "title": "About",
@@ -25,7 +25,7 @@
     "workingFootRight": "Right",
     "workingFootLeft": "Left",
     "workingFootBoth": "Both",
-    "bio": "A technically gifted midfielder who reads the game two steps ahead, Dmytro has built a reputation for his precise passing and relentless pressing that disrupts the opposition before they can settle. Raised through the Dynamo Kyiv youth academy, he combines tactical discipline with the ability to unlock compact defensive shapes. At eighteen he is already the heartbeat of his team — the player who touches the ball most and loses it least.",
+    "bio": "At nine years old, Artem Kukharuk is developing the foundations of a composed and positionally intelligent defender — reading the game early, holding his shape under pressure, and competing with intensity that belies his age. Training within the Viva Cup youth programme, he is building technical discipline alongside match-day habits that experienced coaches recognise as the hallmarks of a serious defensive prospect. As he continues to grow physically and tactically, Artem's combination of awareness, work rate, and competitive drive positions him as a player to watch in his age group.",
     "statPace": "Pace",
     "statDribbling": "Dribbling",
     "statShooting": "Shooting",
@@ -36,26 +36,25 @@
   "trophies": {
     "title": "Trophies",
     "items": [
-      { "name": "Youth League Champion", "competition": "UPL Youth League U18" },
-      { "name": "Cup Winner", "competition": "Kyiv Regional Youth Cup" },
-      { "name": "Tournament MVP", "competition": "Dana Cup Denmark" }
+      { "name": "Starballs CUP Participant", "competition": "Starballs CUP — 2016 Birth Year Category" }
     ]
   },
   "club": {
     "title": "Club",
-    "name": "Dynamo Kyiv U21",
-    "description": "One of Ukraine's most decorated clubs, Dynamo Kyiv has produced generations of international footballers. The U21 structure trains alongside the first team, immersing young players in professional standards from day one.",
+    "name": "Viva Cup",
+    "description": "Viva Cup is a competitive youth football programme providing structured development for players in Artem's age group. The programme combines regular match practice with coaching focused on building technical fundamentals and tactical awareness in a competitive environment where young players are challenged to improve every session.",
     "crestPlaceholder": "Club crest"
   },
   "team": {
     "title": "Team",
-    "name": "Ukraine U18 National Team",
-    "description": "Representing the national team colours at youth level, Dmytro carries his club form into international competition across UEFA development tournaments.",
+    "name": "National Team — TBD",
+    "description": "National team selection not yet confirmed — this section will be updated when Artem represents his country.",
     "crestPlaceholder": "Team crest"
   },
   "highlights": {
     "title": "Highlights",
-    "intro": "Watch training sessions and match clips from the pitch."
+    "intro": "Watch training sessions and match clips from the pitch.",
+    "comingSoon": "Highlights coming soon"
   },
   "gallery": {
     "title": "Gallery",
@@ -78,6 +77,6 @@
     "btnSend": "Send Message",
     "btnSending": "Sending...",
     "spinnerAriaLabel": "Sending...",
-    "errorSubmit": "Something went wrong. Please try again or email us directly at dimakyh@ukr.net"
+    "errorSubmit": "Something went wrong. Please try again or contact us via the form."
   }
 }
