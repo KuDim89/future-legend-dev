@@ -12,6 +12,7 @@
     "menuAriaLabel": "Toggle navigation menu"
   },
   "hero": {
+    "name": "Artem Kukharuk",
     "position": "Defender",
     "cta": "Contact Me",
     "ctaAriaLabel": "Contact Artem Kukharuk"

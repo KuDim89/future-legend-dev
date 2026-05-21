@@ -52,7 +52,7 @@ export function HeroSection({ data, dict }: Props) {
           transition={{ duration: 0.7, delay: prefersReduced ? 0 : 0.2, ease: 'easeOut' }}
           className={styles.heroName}
         >
-          {data.fullName}
+          {dict.name}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
