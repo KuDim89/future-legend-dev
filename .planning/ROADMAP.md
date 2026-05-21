@@ -42,7 +42,7 @@ Full details: [milestones/v1.0-ROADMAP.md](milestones/v1.0-ROADMAP.md)
 Plans:
 
 **Wave 1**
-- [ ] 05-01-PLAN.md — Identity data swap: player.ts, both locale dictionaries, gallery alt text, page metadata
+- [x] 05-01-PLAN.md — Identity data swap: player.ts, both locale dictionaries, gallery alt text, page metadata
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 05-02-PLAN.md — Video slot update: VideoEntry isPlaceholder flag, VideoCard disabled variant, HighlightsSection wiring
@@ -89,6 +89,6 @@ Plans:
 | 2. Core Sections & Animations | v1.0 | 3/3 | Complete | 2026-05-20 |
 | 3. Media & Contact | v1.0 | 4/4 | Complete | 2026-05-20 |
 | 4. Bilingual Support & Polish | v1.0 | 4/4 | Complete | 2026-05-20 |
-| 5. Player Identity | v1.1 | 0/2 | Not started | - |
+| 5. Player Identity | v1.1 | 1/2 | In Progress|  |
 | 6. Asset Prompts & Guide | v1.1 | 0/2 | Not started | - |
 | 7. Asset Integration | v1.1 | 0/3 | Not started | - |

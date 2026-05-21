@@ -9,8 +9,8 @@ Requirements for Real Content milestone. Each maps to roadmap phases.
 
 ### Identity
 
-- [ ] **IDENT-01**: User sees Artem Kukharuk's real name, position (Defender), club (Viva Cup), and age (9) on every section of the site
-- [ ] **IDENT-02**: User reads an accurate bio for Artem in both Ukrainian and English
+- [x] **IDENT-01**: User sees Artem Kukharuk's real name, position (Defender), club (Viva Cup), and age (9) on every section of the site
+- [x] **IDENT-02**: User reads an accurate bio for Artem in both Ukrainian and English
 
 ### Assets
 
@@ -49,8 +49,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| IDENT-01 | Phase 5 | Pending |
-| IDENT-02 | Phase 5 | Pending |
+| IDENT-01 | Phase 5 | Complete |
+| IDENT-02 | Phase 5 | Complete |
 | ASSET-01 | Phase 6 | Pending |
 | ASSET-02 | Phase 6 | Pending |
 | ASSET-03 | Phase 7 | Pending |
