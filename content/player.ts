@@ -31,22 +31,20 @@ export interface Player {
 }
 
 export const player: Player = {
-  fullName: 'Dmytro Kovalenko',
+  fullName: 'Artem Kukharuk',
   workingFoot: 'Right',
-  dateOfBirth: '2006-03-14',
+  dateOfBirth: '2017-01-23',
   nationality: 'Ukrainian',
   stats: {
-    pace: 78,
-    dribbling: 82,
-    shooting: 71,
-    passing: 88,
-    physical: 74,
-    defending: 69,
+    pace: 72,
+    dribbling: 62,
+    shooting: 61,
+    passing: 65,
+    physical: 68,
+    defending: 76,
   },
   trophies: [
-    { year: 2024 },
-    { year: 2023 },
-    { year: 2023 },
+    { year: 2026 },
   ],
   club: {
     logo: null,

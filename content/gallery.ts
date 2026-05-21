@@ -7,12 +7,12 @@ export interface GalleryEntry {
 export const gallery: GalleryEntry[] = [
   {
     src: '/future-legend-dev/images/gallery/photo-01.webp',
-    alt: 'Match action — Dmytro driving forward',
+    alt: 'Match action — Artem driving forward',
     category: 'match',
   },
   {
     src: '/future-legend-dev/images/gallery/photo-02.webp',
-    alt: 'Match intensity — Dmytro competing for the ball',
+    alt: 'Match intensity — Artem competing for the ball',
     category: 'match',
   },
   {
@@ -22,17 +22,17 @@ export const gallery: GalleryEntry[] = [
   },
   {
     src: '/future-legend-dev/images/gallery/photo-04.webp',
-    alt: 'Training focus — Dmytro working on dribbling patterns',
+    alt: 'Training focus — Artem working on defending patterns',
     category: 'training',
   },
   {
     src: '/future-legend-dev/images/gallery/photo-05.webp',
-    alt: 'Official photo — Dmytro in Dynamo Kyiv U21 kit',
+    alt: 'Official photo — Artem in Viva Cup kit',
     category: 'official',
   },
   {
     src: '/future-legend-dev/images/gallery/photo-06.webp',
-    alt: 'Official portrait — Ukraine U18 National Team',
+    alt: 'Official portrait — Artem, Viva Cup',
     category: 'official',
   },
 ];
