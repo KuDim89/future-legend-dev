@@ -88,6 +88,10 @@
   color: var(--color-text);
   line-height: 1.6;
   margin-top: var(--space-6);
+
+  p + p {
+    margin-top: var(--space-4);
+  }
 }
 
 .statRow {

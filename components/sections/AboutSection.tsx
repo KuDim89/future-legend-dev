@@ -94,7 +94,11 @@ export function AboutSection({ data, dict }: Props) {
             </div>
           </dl>
 
-          <p className={`${styles.bio} reveal-item`}>{dict.bio}</p>
+          <div className={`${styles.bio} reveal-item`}>
+            {dict.bio.split('\n\n').map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </div>
 
         {/* Right column: stat bars */}
