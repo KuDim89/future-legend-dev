@@ -2,10 +2,11 @@
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--color-bg);
 }
 
 .heroBg {
@@ -14,65 +15,486 @@
   height: 115%;
   z-index: 0;
   will-change: transform;
-  background: linear-gradient(
-    135deg,
-    var(--color-bg) 0%,
-    #1a0a0e 50%,
-    rgba(229, 0, 43, 0.15) 100%
-  );
+  background: linear-gradient(180deg, #0a1622 0%, #0d1b2a 100%);
+
+  :global([data-theme='light']) & {
+    background: linear-gradient(180deg, #e8edf2 0%, #f5f7fa 100%);
+  }
 }
 
-.heroContent {
+// ─── Decorative number ───────────────────────────────────────────────────────
+
+.decorNumber {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: clamp(16rem, 28vw, 32rem);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(240, 244, 248, 0.07);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+
+  @include respond-to('lg') {
+    display: block;
+  }
+
+  :global([data-theme='light']) & {
+    -webkit-text-stroke: 2px rgba(17, 17, 17, 0.05);
+  }
+}
+
+// ─── Metadata strip ──────────────────────────────────────────────────────────
+
+.meta {
   position: relative;
   z-index: 1;
-  text-align: center;
-  padding: 0 var(--space-4);
-
-  @include respond-to('md') {
-    padding: 0 var(--space-8);
-  }
-}
-
-.heroName {
-  font-family: var(--font-heading);
-  font-size: var(--text-5xl);
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.0;
-  margin-bottom: var(--space-4);
-
-  @include respond-to('md') {
-    font-size: var(--text-hero);
-  }
-}
-
-.heroPosition {
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-8);
-}
-
-.heroCta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  padding: var(--space-4) var(--space-8);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--space-16) + var(--space-6)) var(--space-4) var(--space-2);
+
+  @include respond-to('sm') {
+    gap: var(--space-3) var(--space-5);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  @include respond-to('md') {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+  }
+
+  @include respond-to('lg') {
+    justify-content: flex-start;
+    padding-left: var(--space-48);
+    padding-right: var(--space-48);
+  }
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+
+  @include respond-to('sm') {
+    gap: var(--space-3);
+  }
+}
+
+.metaDash {
+  display: inline-block;
+  width: 16px;
+  height: 2px;
   background: var(--color-accent);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--text-base);
+  flex-shrink: 0;
+
+  @include respond-to('sm') {
+    width: 20px;
+  }
+}
+
+// ─── Main layout ─────────────────────────────────────────────────────────────
+// Phone:        flex column, centered
+// sm–md:        flex column, left-aligned, wider padding
+// lg+:          CSS grid — 54% left / 46% right photo col
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-4) var(--space-8);
+  overflow: visible;
+
+  @include respond-to('sm') {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    padding-bottom: var(--space-10);
+  }
+
+  @include respond-to('md') {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+    padding-bottom: var(--space-12);
+  }
+
+  @include respond-to('lg') {
+    display: grid;
+    grid-template-columns: 54% 46%;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 0;
+    padding-left: var(--space-48);
+    padding-right: var(--space-48);
+  }
+}
+
+// ─── Name (row 1, full width) ─────────────────────────────────────────────────
+
+.nameStack {
+  position: relative;
+  margin: 0 0 var(--space-1);
+  line-height: 0.88;
+  overflow: visible;
+  z-index: 3;
+  text-align: center;
+
+  @include respond-to('sm') {
+    margin: 0 0 var(--space-2);
+  }
+
+  @include respond-to('lg') {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: left;
+  }
+}
+
+.firstName {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 14vw, 11rem);
   font-weight: 700;
-  border-radius: 4px;
-  text-decoration: none;
-  min-height: 48px;
-  transition: background-color 150ms ease;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
 
-  &:hover {
-    background: var(--color-accent-hover);
+.lastName {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 14vw, 11rem);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(240, 244, 248, 0.5);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+
+  :global([data-theme='light']) & {
+    -webkit-text-stroke: 2px rgba(17, 17, 17, 0.35);
+  }
+}
+
+// ─── Position label (row 2, left col) ────────────────────────────────────────
+
+.position {
+  position: relative;
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--color-accent);
+  margin: calc(-1 * var(--space-4)) 0 var(--space-2);
+  line-height: 1.2;
+  z-index: 3;
+  text-align: center;
+
+  @include respond-to('sm') {
+    margin: calc(-1 * var(--space-6)) 0 var(--space-2);
   }
 
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
+  @include respond-to('md') {
+    margin: calc(-1 * var(--space-8)) 0 var(--space-2);
   }
+
+  @include respond-to('lg') {
+    grid-column: 1;
+    grid-row: 2;
+    margin: calc(-1 * var(--space-16)) 0 0;
+    text-align: left;
+  }
+}
+
+// ─── Separator ───────────────────────────────────────────────────────────────
+
+.separator {
+  position: relative;
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-4) 0 var(--space-4);
+  z-index: 4;
+
+  @include respond-to('lg') {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin: calc(-1 * var(--space-16)) 0 var(--space-4);
+  }
+}
+
+// ─── Quote (row 4, left col) ─────────────────────────────────────────────────
+
+.quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0 auto var(--space-6);
+  padding: 0;
+  border: none;
+  max-width: 480px;
+  z-index: 1;
+  text-align: center;
+
+  &::before { content: '\201C'; }
+  &::after  { content: '\201D'; }
+
+  @include respond-to('sm') {
+    font-size: var(--text-base);
+    margin: 0 auto var(--space-6);
+    max-width: 520px;
+  }
+
+  @include respond-to('md') {
+    font-size: var(--text-lg);
+    margin: 0 auto var(--space-8);
+    max-width: 600px;
+  }
+
+  @include respond-to('lg') {
+    grid-column: 1;
+    grid-row: 4;
+    align-self: start;
+    margin: -9rem 0 0;
+    max-width: 380px;
+    text-align: left;
+  }
+}
+
+// ─── CTA button (layout override — base styles in Button.module.scss) ────────
+
+.cta {
+  flex-shrink: 0;
+  padding: 18px 20px;
+  height: auto;
+  letter-spacing: 0.22em;
+}
+
+// ─── Bottom row: CTA + age ────────────────────────────────────────────────────
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: calc(-1 * var(--space-4));
+  position: relative;
+  z-index: 3;
+
+  @include respond-to('lg') {
+    margin-top: -4.375rem;
+  }
+}
+
+.ageBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.ageNumber {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+
+  @include respond-to('sm') {
+    font-size: 4.5rem;
+  }
+
+  @include respond-to('lg') {
+    font-size: 6rem;
+  }
+}
+
+.ageLabel {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  line-height: 1.4;
+
+  @include respond-to('sm') {
+    font-size: 0.9rem;
+  }
+
+  @include respond-to('lg') {
+    font-size: 1.2rem;
+  }
+}
+
+// ─── Photo card ───────────────────────────────────────────────────────────────
+
+.photoCol {
+  position: relative;
+  order: -1;
+  width: 75%;
+  max-width: 260px;
+  margin: var(--space-3) auto var(--space-8);
+  align-self: center;
+  z-index: 2;
+
+  @include respond-to('sm') {
+    max-width: 320px;
+    margin: var(--space-4) auto var(--space-12);
+  }
+
+  @include respond-to('md') {
+    width: 55%;
+    max-width: 380px;
+    margin: var(--space-4) auto var(--space-16);
+  }
+
+  @include respond-to('lg') {
+    order: unset;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    margin-top: 50px;
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: start;
+  }
+}
+
+.photoCard {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+
+  :global([data-theme='light']) & {
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+  }
+
+  @include respond-to('lg') {
+    width: 100%;
+  }
+}
+
+.photoFrame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-bg-elevated);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      rgba(10, 14, 20, 0.6) 70%,
+      rgba(10, 14, 20, 0.92) 100%
+    );
+    pointer-events: none;
+
+    :global([data-theme='light']) & {
+      background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        rgba(232, 237, 242, 0.6) 70%,
+        rgba(232, 237, 242, 0.92) 100%
+      );
+    }
+  }
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(240, 244, 248, 0.03) 0px,
+    rgba(240, 244, 248, 0.03) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+
+  :global([data-theme='light']) & {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(17, 17, 17, 0.04) 0px,
+      rgba(17, 17, 17, 0.04) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+  }
+}
+
+// ─── Scroll hint ─────────────────────────────────────────────────────────────
+
+@keyframes scrollBarDown {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+.scrollHint {
+  display: none;
+  position: absolute;
+  right: var(--space-8);
+  bottom: var(--space-8);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  z-index: 1;
+
+  @include respond-to('lg') {
+    display: flex;
+  }
+}
+
+.scrollLineTrack {
+  width: 1px;
+  height: 48px;
+  background: var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLineBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: var(--color-accent);
+  animation: scrollBarDown 1.6s ease-in-out infinite;
+}
+
+.scrollText {
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
 }

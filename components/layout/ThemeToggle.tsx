@@ -2,12 +2,11 @@
 
 import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import styles from './ThemeToggle.module.scss';
 
 function SunIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="5" />
       <line x1="12" y1="1" x2="12" y2="3" />
       <line x1="12" y1="21" x2="12" y2="23" />
@@ -23,7 +22,7 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
@@ -31,11 +30,6 @@ function MoonIcon() {
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
 
   return (
     <motion.button
@@ -43,11 +37,11 @@ export function ThemeToggle() {
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle theme"
       title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-      whileHover={{ scale: 1.05, transition: { duration: 0.15 } }}
-      whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+      whileTap={{ scale: 0.92, transition: { duration: 0.1 } }}
+      suppressHydrationWarning
     >
-      <span className={styles.icon}>
-        {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+      <span suppressHydrationWarning style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {theme === 'light' ? <SunIcon /> : <MoonIcon />}
       </span>
     </motion.button>
   );

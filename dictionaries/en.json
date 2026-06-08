@@ -5,7 +5,8 @@
     "about": "About",
     "highlights": "Highlights",
     "gallery": "Gallery",
-    "trophies": "Trophies",
+    "trophy": "Trophies",
+    "trophies": "Tournaments",
     "club": "Club",
     "team": "Team",
     "contact": "Contact",
@@ -13,59 +14,151 @@
   },
   "hero": {
     "name": "Artem Kukharuk",
-    "position": "Defender",
-    "cta": "Contact Me",
-    "ctaAriaLabel": "Contact Artem Kukharuk"
+    "firstName": "Artem",
+    "lastName": "Kukharuk",
+    "position": "defender",
+    "metaClassOf": "2017 YEAR",
+    "metaFoot": "RIGHT-FOOTED",
+    "metaLocation": "KHMELNYTSKYI · UA",
+    "quote": "Reading the game before it happens. A defender shaped by the pitch in Khmelnytskyi — composed, intelligent, relentless.",
+    "photoLabel": "HERO PHOTOGRAPH",
+    "photoCode": "KKR-001",
+    "yearsOld": "YEARS OLD",
+    "cta": "OPEN DOSSIER",
+    "ctaAriaLabel": "Open player dossier for Artem Kukharuk"
+  },
+  "ticker": {
+    "items": [
+      "Player of the Team",
+      "Available for Trials",
+      "2017 Year",
+      "{years} Years on the Pitch",
+      "Defender · No. 3",
+      "MVP · Tiras Cup 2025",
+      "Best Player"
+    ]
   },
   "about": {
     "title": "About",
-    "labelName": "Name",
+    "sub": "A composed young defender, shaped by {years} years of competitive play.",
+    "sectionNum": "01",
+    "vitalsTitle": "Vitals",
+    "name": "Artem Kukharuk",
+    "labelName": "Full Name",
     "labelPosition": "Position",
+    "positionValue": "Defender",
     "labelWorkingFoot": "Working Foot",
-    "labelDob": "Date of Birth",
+    "labelDob": "Born",
+    "labelNationality": "Nationality",
+    "nationalityValue": "Ukrainian",
+    "labelCity": "City",
+    "cityValue": "Khmelnytskyi",
+    "labelClub": "Club",
+    "labelClass": "Year",
     "workingFootRight": "Right",
     "workingFootLeft": "Left",
     "workingFootBoth": "Both",
-    "bio": "At nine years old, Artem Kukharuk is developing the foundations of a composed and positionally intelligent defender — reading the game early, maintaining his shape under pressure, and competing with an intensity that belies his age. Artem started playing football at the age of four and has already taken part in numerous tournaments, gaining valuable match experience against strong competition.\n\nTraining within the Viva Cup youth programme, he continues to build technical discipline, tactical awareness, and strong match-day habits that experienced coaches recognise as key qualities of a promising defensive player. His dedication and performances on the field have earned him several personal awards, including Best Player of the Team, MVP (Most Valuable Player of the Tournament), and other individual honours.\n\nAs he continues to develop physically and tactically, Artem's combination of football intelligence, work ethic, and competitive mentality makes him a player to watch in his age group.",
-    "statPace": "Pace",
-    "statDribbling": "Dribbling",
-    "statShooting": "Shooting",
-    "statPassing": "Passing",
-    "statPhysical": "Physical",
-    "statDefending": "Defending"
+    "quote": "A defender who reads the play before the play happens.",
+    "quoteCite": "Coaching staff · Viva Cup 2017",
+    "bio": "At nine years old, Artem is developing the foundations of a composed and positionally intelligent defender — reading the game early, maintaining his shape under pressure, and competing with an intensity that belies his age. Artem started playing football at the age of four and has already taken part in numerous tournaments, gaining valuable match experience against strong competition.\n\nTraining within the Viva Cup youth programme, he continues to build technical discipline, tactical awareness, and strong match-day habits that experienced coaches recognise as key qualities of a promising defensive player. His dedication and performances on the field have earned him several personal awards, including Best Player of the Team, MVP and other individual honours.\n\nAs he continues to develop physically and tactically, Artem's combination of football intelligence, work ethic, and competitive mentality makes him a player to watch in his age group."
+  },
+  "profile": {
+    "sectionNum": "02",
+    "title": "Profile",
+    "sub": "Defending leads. Pace and physical foundation follow close behind.",
+    "lead": "Strongest where it matters most — defensive read, positioning, and ground duel — with the engine to recover and the technique to play it out.",
+    "topTag": "Standout attribute",
+    "topName": "Defending",
+    "styleLabel": "Visualization",
+    "styles": ["Radar", "Bars", "Numerals"],
+    "statLabels": {
+      "pace": "Pace",
+      "dribbling": "Dribbling",
+      "shooting": "Shooting",
+      "passing": "Passing",
+      "physical": "Physical",
+      "defending": "Defending"
+    }
+  },
+  "trophy": {
+    "title": "Trophy Cabinet",
+    "sub": "Personal awards earned on the pitch.",
+    "labelDate": "Date",
+    "labelCategory": "Category",
+    "labelYear": "year",
+    "trophyNames": {
+      "Best Player": "Best Player",
+      "MVP": "MVP"
+    },
+    "tournamentNames": {
+      "The future stars of Podillia 2024": "The future stars of Podillia 2024",
+      "Podillian summer 2024": "Podillian summer 2024",
+      "Riven football cup": "Riven football cup",
+      "Tiras cup": "Tiras cup",
+      "Viva autumn cup 2025": "Viva autumn cup 2025"
+    },
+    "showMore": "Show more"
   },
   "trophies": {
-    "title": "Trophies",
+    "title": "Participation in Tournaments",
+    "sub": "A growing collection — the first names entering the case.",
+    "moreToCome": "More to come",
+    "showMore": "Show more",
     "items": [
-      { "name": "Starballs CUP Participant", "competition": "Starballs CUP — 2016 Birth Year Category" }
+      { "name": "Starballs CUP Participant", "competition": "Starballs CUP — 2016 Birth Year Category", "place": "Participant" },
+      { "name": "Open Cup", "competition": "Open Cup — 2016 Birth Year Category", "place": "3rd Place" }
     ]
   },
   "club": {
     "title": "Club",
+    "sub": "Where the foundations are being laid.",
     "name": "Viva Cup",
-    "description": "Viva Cup is a youth football club from Khmelnytskyi dedicated to helping children develop football skills, confidence, discipline, and teamwork in a positive and motivating environment. Founded in 2021, the club focuses on modern training methods, active participation in tournaments, and creating a strong team spirit for young athletes. Viva Cup promotes a healthy lifestyle and a love for football among children and youth.",
-    "crestPlaceholder": "Club crest"
+    "est": "Khmelnytskyi · Founded 2021",
+    "paragraphs": [
+      "Viva Cup is a youth football club from Khmelnytskyi dedicated to helping children develop football skills, confidence, discipline, and teamwork in a positive and motivating environment.",
+      "Founded in 2021, the club focuses on modern training methods, active participation in tournaments, and creating a strong team spirit for young athletes. Viva Cup promotes a healthy lifestyle and a love for football among children and youth."
+    ],
+    "sinceLabel": "With the club for",
+    "sinceUnit": "yrs",
+    "crestTag": "Club crest"
   },
   "team": {
     "title": "Team",
-    "name": "National Team — TBD",
-    "description": "National team selection not yet confirmed — this section will be updated when Artem represents his country.",
-    "crestPlaceholder": "Team crest"
+    "sub": "A second family — five years and counting.",
+    "name": "Viva Cup · 2017",
+    "est": "Year of birth 2017",
+    "paragraphs": [
+      "More than a football team — a second family built on trust, development, and a shared passion for the game. Artem has been part of this team since the age of four, growing together with his teammates both on and off the pitch.",
+      "The team is guided by a dedicated coach who helps young players build strong technical skills, discipline, and confidence. Through matches and tournaments, Viva Cup 2017 creates an environment where players learn teamwork, respect, and the true spirit of football."
+    ],
+    "sinceLabel": "Together since",
+    "sinceValue": "2021",
+    "crestTag": "Team crest"
   },
   "highlights": {
     "title": "Highlights",
-    "intro": "Watch training sessions and match clips from the pitch.",
-    "comingSoon": "Highlights coming soon"
+    "sub": "Training reels and match clips — coming soon to the dossier.",
+    "comingSoon": "Highlights coming soon",
+    "featured": "Featured",
+    "showMore": "Show more"
   },
   "gallery": {
     "title": "Gallery",
-    "intro": "Behind the scenes on the pitch and in training.",
+    "intro": "Behind the scenes — on the pitch, in training, between matches.",
     "empty": "No photos yet.",
-    "openPhotoAriaLabel": "Open photo in fullscreen"
+    "openPhotoAriaLabel": "Open photo in fullscreen",
+    "photoTag": "On the pitch",
+    "showMore": "Show more"
   },
   "contact": {
     "title": "Contact",
-    "intro": "Get in touch — whether you are a scout, coach, or club representative.",
+    "sub": "For scouts, coaches, clubs.",
+    "headline": ["Open to", "trials,", "reviews", "and conversations."],
+    "meta": [
+      ["Region", "Khmelnytskyi · UA"],
+      ["Open for", "Trials · Assessments · Clubs"],
+      ["Agent", "My parents"]
+    ],
     "successHeading": "Message Sent",
     "successBody": "Your message has been sent. We'll be in touch soon.",
     "labelName": "Name",

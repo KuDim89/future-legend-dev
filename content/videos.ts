@@ -24,4 +24,46 @@ export const videos: VideoEntry[] = [
     category: 'skills',
     isPlaceholder: true,
   },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'Oj0nkoFJZws',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
+  {
+    videoId: 'NiPCDDNEZa0',
+    title: 'Skills Compilation — Coming Soon',
+    category: 'skills',
+    isPlaceholder: true,
+  },
 ];

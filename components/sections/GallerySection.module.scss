@@ -1,86 +1,177 @@
 // GallerySection.module.scss
-// Mixins auto-injected via sassOptions.additionalData — no @use needed
-// Tokens: use var(--token) — NOT $scss-variable
 
 .section {
-  padding: var(--space-16) var(--space-4);
+  position: relative;
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-border);
+}
 
-  @include respond-to('lg') {
-    padding: var(--space-24) var(--space-8);
-  }
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+
+  @include respond-to('sm') { padding: 0 var(--space-6); }
+  @include respond-to('md') { padding: 0 var(--space-10); }
+  @include respond-to('lg') { padding: 0 var(--space-12); }
+}
+
+// ─── Section header ───────────────────────────────────────────────────────────
+
+.sectionHead {
+  margin-bottom: var(--space-16);
+
+  @include respond-to('md') { margin-bottom: var(--space-24); }
 }
 
 .sectionTitle {
   font-family: var(--font-heading);
-  font-size: var(--text-3xl);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-section-title);
   color: var(--color-text);
-  line-height: 1.1;
-  margin-bottom: var(--space-12);
+  margin: 0;
+}
 
-  @include respond-to('md') {
-    font-size: var(--text-4xl);
+.sectionSub {
+  margin-top: var(--space-4);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  line-height: 1.35;
+  color: var(--color-text);
+  opacity: 0.85;
+  max-width: 520px;
+}
+
+// ─── Grid wrapper — gains scroll when visible rows exceed 4 ──────────────────
+
+.gridWrap {
+  scroll-margin-top: var(--space-16);
+}
+
+.gridWrap.scrollable {
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
   }
 
-  &::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    background-color: var(--color-accent);
-    margin-top: var(--space-2);
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 2px;
   }
 }
 
-// react-masonry-css injects these class names directly onto DOM elements.
-// CSS Modules would hash scoped class names so the selectors would never match.
-// :global() is nested inside .section so the rule has a local ancestor (purity satisfied).
-.section {
-  :global(.masonry-grid) {
-    display: flex;
-    margin-left: calc(-1 * var(--space-6));
-    width: auto;
-  }
+// ─── Photo grid (CSS grid — fills left-to-right for predictable rows) ────────
 
-  :global(.masonry-grid_column) {
-    padding-left: var(--space-6);
-    background-clip: padding-box;
-  }
+.masonry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @include respond-to('sm') { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to('lg') { grid-template-columns: repeat(3, 1fr); }
 }
 
-.intro {
+.empty {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  line-height: 1.5;
-  margin-bottom: var(--space-12);
 }
 
-.photoWrapper {
+.showMoreWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-12);
+}
+
+
+// ─── Photo item ───────────────────────────────────────────────────────────────
+
+.photo {
   position: relative;
   display: block;
+  width: 100%;
   padding: 0;
   border: none;
-  background: none;
+  background: var(--color-bg-elevated);
   cursor: pointer;
+  overflow: hidden;
 
   &:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
+
+  &:hover .img {
+    transform: scale(1.03);
+    filter: saturate(1) contrast(1.05);
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  &:hover .tag {
+    opacity: 1;
+  }
 }
 
-.photo {
+.img {
   width: 100%;
   display: block;
-  border-radius: 4px;
-  margin-bottom: var(--space-6);
+  transition: transform 0.5s ease, filter 0.3s ease;
+  filter: saturate(0.85) contrast(1.05);
 }
 
-.photoOverlay {
+// ─── Gradient overlay (fades in on hover) ─────────────────────────────────────
+
+.overlay {
   position: absolute;
   inset: 0;
-  background: var(--color-overlay);
-  border-radius: 4px;
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
   pointer-events: none;
+}
+
+// ─── Photo tag (bottom-left, reveals on hover) ────────────────────────────────
+
+.tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+// ─── Index number (top-right, always visible) ─────────────────────────────────
+
+.idx {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 6px;
+  z-index: 2;
 }

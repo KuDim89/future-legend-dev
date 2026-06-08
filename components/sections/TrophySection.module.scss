@@ -1,4 +1,4 @@
-// TrophiesSection.module.scss
+// TrophySection.module.scss
 
 .section {
   position: relative;
@@ -70,7 +70,7 @@
   margin-top: var(--space-12);
 }
 
-// ─── Trophy grid ──────────────────────────────────────────────────────────────
+// ─── Grid ─────────────────────────────────────────────────────────────────────
 
 .grid {
   display: grid;
@@ -84,7 +84,7 @@
   }
 }
 
-// ─── Trophy card ──────────────────────────────────────────────────────────────
+// ─── Card ─────────────────────────────────────────────────────────────────────
 
 .card {
   border-right: 1px solid var(--color-border);
@@ -93,7 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 280px;
+  min-height: 300px;
   position: relative;
   transition: background 0.3s ease;
 
@@ -102,23 +102,14 @@
   }
 }
 
-.cardEmpty {
-  color: var(--color-text-muted);
-}
+// ─── Date ─────────────────────────────────────────────────────────────────────
 
-// ─── Year ─────────────────────────────────────────────────────────────────────
-
-.year {
+.date {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.2em;
-  color: var(--color-accent);
   text-transform: uppercase;
-
-  .cardEmpty & {
-    color: var(--color-text-muted);
-    opacity: 0.4;
-  }
+  color: var(--color-accent);
 }
 
 // ─── Crest ────────────────────────────────────────────────────────────────────
@@ -146,47 +137,52 @@
   height: auto;
 }
 
-// ─── Place badge ──────────────────────────────────────────────────────────────
+// ─── Trophy name ──────────────────────────────────────────────────────────────
 
-.place {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 4px 8px;
-  border: 1px solid var(--color-border);
+.trophyName {
   font-family: var(--font-heading);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-
-// ─── Name ─────────────────────────────────────────────────────────────────────
-
-.name {
-  font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  line-height: 1;
   color: var(--color-text);
   margin-top: auto;
-  line-height: 1.2;
-
-  .cardEmpty & {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    text-transform: none;
-    font-size: 16px;
-    letter-spacing: 0;
-    color: var(--color-text-muted);
-  }
 }
 
-// ─── Competition ──────────────────────────────────────────────────────────────
+// ─── Meta (tournament + category) ─────────────────────────────────────────────
 
-.comp {
-  font-size: 12px;
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.tournamentName {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
-  line-height: 1.5;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.categoryDot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
 }

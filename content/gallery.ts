@@ -35,4 +35,39 @@ export const gallery: GalleryEntry[] = [
     alt: 'Official portrait — Artem, Viva Cup',
     category: 'official',
   },
+  {
+    src: '/future-legend-dev/images/gallery/photo-06.webp',
+    alt: 'Official portrait — Artem, Viva Cup',
+    category: 'official',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-05.webp',
+    alt: 'Official photo — Artem in Viva Cup kit',
+    category: 'official',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-04.webp',
+    alt: 'Training focus — Artem working on defending patterns',
+    category: 'training',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-06.webp',
+    alt: 'Official portrait — Artem, Viva Cup',
+    category: 'official',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-05.webp',
+    alt: 'Official photo — Artem in Viva Cup kit',
+    category: 'official',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-04.webp',
+    alt: 'Training focus — Artem working on defending patterns',
+    category: 'training',
+  },
+  {
+    src: '/future-legend-dev/images/gallery/photo-04.webp',
+    alt: 'Training focus — Artem working on defending patterns',
+    category: 'training',
+  },
 ];

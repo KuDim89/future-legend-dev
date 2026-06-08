@@ -1,62 +1,258 @@
 // HighlightsSection.module.scss
-// Mixins auto-injected via sassOptions.additionalData — no @use needed
-// Tokens: use var(--token) — NOT $scss-variable
 
 .section {
-  padding: var(--space-16) var(--space-4);
+  position: relative;
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-border);
+}
 
-  @include respond-to('lg') {
-    padding: var(--space-24) var(--space-8);
-  }
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+
+  @include respond-to('sm') { padding: 0 var(--space-6); }
+  @include respond-to('md') { padding: 0 var(--space-10); }
+  @include respond-to('lg') { padding: 0 var(--space-12); }
+}
+
+// ─── Section header ───────────────────────────────────────────────────────────
+
+.sectionHead {
+  margin-bottom: var(--space-16);
+
+  @include respond-to('md') { margin-bottom: var(--space-24); }
 }
 
 .sectionTitle {
   font-family: var(--font-heading);
-  font-size: var(--text-3xl);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-section-title);
   color: var(--color-text);
-  line-height: 1.1;
-  margin-bottom: var(--space-12);
-
-  @include respond-to('md') {
-    font-size: var(--text-4xl);
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    background-color: var(--color-accent);
-    margin-top: var(--space-2);
-  }
+  margin: 0;
 }
 
-.intro {
-  font-size: var(--text-base);
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  margin-bottom: var(--space-12);
+.sectionSub {
+  margin-top: var(--space-4);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  line-height: 1.35;
+  color: var(--color-text);
+  opacity: 0.85;
+  max-width: 520px;
 }
 
-.grid {
+// ─── Grid wrapper ─────────────────────────────────────────────────────────────
+
+.gridWrap {
+  scroll-margin-top: var(--space-16);
+}
+
+.gridWrap.scrollable {
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
+}
+
+// ─── Hero block: featured left + 2×2 right ───────────────────────────────────
+
+.heroGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  gap: 16px;
 
-  @include respond-to('sm') {
-    grid-template-columns: 1fr 1fr;
+  @include respond-to('md') {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 
-  @include respond-to('lg') {
-    grid-template-columns: repeat(3, 1fr);
+  > * {
+    min-width: 0;
   }
 }
 
+// ─── Extra rows: videos 6+ in 4-per-row grid ─────────────────────────────────
+
+.extraGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.showMoreWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-12);
+}
+
+// ─── Video card ───────────────────────────────────────────────────────────────
+
 .card {
-  list-style: none; // list-item reset only — VideoCard supplies its own card surface
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(229, 0, 43, 0.08) 0%, transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:hover .play {
+    transform: scale(1.1);
+  }
+}
+
+.featured {
+  @include respond-to('md') {
+    aspect-ratio: unset;
+    grid-column: span 2;
+    grid-row: span 2;
+    align-self: stretch;
+  }
+}
+
+// ─── Stripe badge ─────────────────────────────────────────────────────────────
+
+.stripe {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 4px 12px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+// ─── Thumbnail button (click to play) ────────────────────────────────────────
+
+.thumbBtn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// ─── Play overlay (shown on top of thumbnail) ─────────────────────────────────
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+// ─── YouTube iframe ───────────────────────────────────────────────────────────
+
+.player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+// ─── Meta (title + duration) ──────────────────────────────────────────────────
+
+.meta {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.ttl {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.dur {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  white-space: nowrap;
+  flex-shrink: 0;
 }

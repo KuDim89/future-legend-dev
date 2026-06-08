@@ -1,130 +1,92 @@
 'use client';
 
 import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Footprints } from 'lucide-react';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
 import type { Player } from '@/content/player';
 import type { Dictionary } from '@/lib/getDictionary';
 import styles from './AboutSection.module.scss';
-
-// Plugin registration at module scope — idempotent, safe in multiple files
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface Props {
   data: Player;
   dict: Dictionary['about'];
 }
 
+function formatDob(iso: string): string {
+  const [y, m, d] = iso.split('-');
+  return `${d} / ${m} / ${y.slice(2)}`;
+}
+
 export function AboutSection({ data, dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
-  const statRef = useRef<HTMLDivElement>(null);
 
-  // Section title + bio grid animate via hook (reveal-item class elements)
   useScrollReveal(containerRef);
 
-  // Separate GSAP block for stat bars — scoped to statRef
-  useGSAP(
-    () => {
-      const prefersReduced = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
+  const workingFoot =
+    data.workingFoot === 'Right'
+      ? dict.workingFootRight
+      : data.workingFoot === 'Left'
+        ? dict.workingFootLeft
+        : dict.workingFootBoth;
 
-      if (prefersReduced) {
-        // Set bars to final width immediately — no animation
-        gsap.set('[data-stat-fill]', {
-          width: (_i: number, el: Element) =>
-            (el as HTMLElement).dataset.value + '%',
-        });
-        return;
-      }
-
-      gsap.from('[data-stat-fill]', {
-        width: '0%',
-        duration: 1.0,
-        stagger: 0.15,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: statRef.current,
-          start: 'top 80%',
-          scrub: false,
-        },
-      });
-    },
-    { scope: statRef }
-  );
-
-  const stats = [
-    { label: dict.statPace, value: data.stats.pace },
-    { label: dict.statDribbling, value: data.stats.dribbling },
-    { label: dict.statShooting, value: data.stats.shooting },
-    { label: dict.statPassing, value: data.stats.passing },
-    { label: dict.statPhysical, value: data.stats.physical },
-    { label: dict.statDefending, value: data.stats.defending },
+  const vitals: [string, string][] = [
+    [dict.labelName, dict.name],
+    [dict.labelPosition, dict.positionValue],
+    [dict.labelWorkingFoot, workingFoot],
+    [dict.labelDob, formatDob(data.dateOfBirth)],
+    [dict.labelNationality, dict.nationalityValue],
+    [dict.labelCity, dict.cityValue],
+    [dict.labelClub, 'Viva Cup'],
+    [dict.labelClass, '2017'],
   ];
+
+  const yearsPlaying = new Date().getFullYear() - data.footballStartYear;
+  const sub = dict.sub.replace('{years}', String(yearsPlaying));
+  const bioParagraphs = dict.bio.split('\n\n');
 
   return (
     <section id="about" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
+      <div className={styles.inner}>
 
-      <div className={styles.layout}>
-        {/* Left column: bio grid + narrative bio */}
-        <div>
-          <dl className={`${styles.bioGrid} reveal-item`}>
-            <div className={styles.bioCell}>
-              <dt className={styles.bioField}>{dict.labelName}</dt>
-              <dd className={styles.bioValue}>{data.fullName}</dd>
-            </div>
-            <div className={styles.bioCell}>
-              <dt className={styles.bioField}>{dict.labelPosition}</dt>
-              <dd className={styles.bioValue}>{dict.labelPosition}</dd>
-            </div>
-            <div className={styles.bioCell}>
-              <dt className={styles.bioField}>{dict.labelWorkingFoot}</dt>
-              <dd className={styles.bioValue}>
-                <Footprints size={16} aria-hidden="true" color="var(--color-text-muted)" />
-                {data.workingFoot === 'Right' ? dict.workingFootRight : data.workingFoot === 'Left' ? dict.workingFootLeft : dict.workingFootBoth}
-              </dd>
-            </div>
-            <div className={styles.bioCell}>
-              <dt className={styles.bioField}>{dict.labelDob}</dt>
-              <dd className={styles.bioValue}>{data.dateOfBirth}</dd>
-            </div>
-          </dl>
+        {/* ── Section header ── */}
+        <div className={`${styles.sectionHead} reveal-item`}>
+          <h2 className={styles.sectionTitle}>{dict.title}</h2>
+          <p className={styles.sectionSub}>{sub}</p>
+        </div>
 
-          <div className={`${styles.bio} reveal-item`}>
-            {dict.bio.split('\n\n').map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+        {/* ── Main grid: vitals + bio ── */}
+        <div className={styles.aboutGrid}>
+
+          {/* Left: vitals panel */}
+          <div className={`reveal-item`}>
+            <div className={styles.eyebrow}>
+              <span className={styles.eyebrowDot} />
+              {dict.vitalsTitle}
+            </div>
+            <div className={styles.vitals}>
+              {vitals.map(([k, v]) => (
+                <div className={styles.vitalRow} key={k}>
+                  <div className={styles.vitalKey}>{k}</div>
+                  <div className={styles.vitalVal}>{v}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: bio + pullquote */}
+          <div>
+            <div className={`${styles.bio} reveal-item`}>
+              {bioParagraphs.map((p, i) => (
+                <p key={i} className={i === 0 ? styles.dropCap : undefined}>{p}</p>
+              ))}
+            </div>
+
+            <blockquote className={`${styles.pullquote} reveal-item`}>
+              {dict.quote}
+              <cite>{dict.quoteCite}</cite>
+            </blockquote>
           </div>
         </div>
 
-        {/* Right column: stat bars */}
-        <div ref={statRef} role="list">
-          {stats.map(({ label, value }) => (
-            <div
-              key={label}
-              role="listitem"
-              aria-label={`${label}: ${value} out of 100`}
-              className={styles.statRow}
-            >
-              <div className={styles.statHeader}>
-                <span className={styles.statLabel}>{label}</span>
-                <span className={styles.statValue}>{value}</span>
-              </div>
-              <div className={styles.statTrack}>
-                <div
-                  className={styles.statFill}
-                  data-stat-fill
-                  data-value={value}
-                  style={{ width: `${value}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

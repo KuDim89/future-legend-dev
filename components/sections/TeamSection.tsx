@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
 import type { Team } from '@/content/player';
 import type { Dictionary } from '@/lib/getDictionary';
@@ -17,22 +18,46 @@ export function TeamSection({ team, dict }: Props) {
 
   return (
     <section id="team" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
-      <div className={`${styles.content} reveal-item`}>
-        <div className={styles.logoPlaceholder}>
-          {team.logo ? (
-            <img
-              src={team.logo}
-              alt={`${dict.name} crest`}
-              className={styles.logoImage}
-            />
-          ) : (
-            <span className={styles.logoCaption}>{dict.crestPlaceholder}</span>
-          )}
+      <div className={styles.inner}>
+
+        <div className={`${styles.sectionHead} reveal-item`}>
+          <h2 className={styles.sectionTitle}>{dict.title}</h2>
+          <p className={styles.sectionSub}>{dict.sub}</p>
         </div>
-        <div className={styles.teamText}>
-          <p className={styles.teamName}>{dict.name}</p>
-          <p className={styles.description}>{dict.description}</p>
+
+        <div className={styles.spread}>
+
+          {/* Club text — left on desktop */}
+          <div className={`${styles.teamText} reveal-item`}>
+            <h3 className={styles.teamName}>{dict.name}</h3>
+            <p className={styles.est}>{dict.est}</p>
+            {dict.paragraphs.map((p, i) => (
+              <p key={i} className={styles.para}>{p}</p>
+            ))}
+            <div className={styles.since}>
+              <span className={styles.sinceLabel}>{dict.sinceLabel}</span>
+              <span className={styles.sinceValue}>{dict.sinceValue}</span>
+            </div>
+          </div>
+
+          {/* Crest frame — right on desktop */}
+          <div className={`${styles.crestWrap} reveal-item`}>
+            <div className={styles.crestFrame}>
+              <span className={styles.crestTag}>{dict.crestTag}</span>
+              {team.logo ? (
+                <Image
+                  src={team.logo}
+                  alt={dict.name}
+                  width={320}
+                  height={320}
+                  className={styles.crestImg}
+                />
+              ) : (
+                <div className={styles.crestEmpty} />
+              )}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

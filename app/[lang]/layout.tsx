@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import { oswald, roboto } from '@/app/fonts';
 import { Providers } from '@/components/providers/Providers';
+import { LangSync } from '@/components/providers/LangSync';
 import { SmoothScrollProvider } from '@/lib/SmoothScrollProvider';
-import '@/styles/globals.scss';
 
 export const dynamicParams = false;
 
@@ -25,16 +24,11 @@ export default async function RootLayout({
   const { lang } = await params;
 
   return (
-    <html
-      lang={lang}
-      className={`${oswald.variable} ${roboto.variable}`}
-      suppressHydrationWarning
-    >
-      <body suppressHydrationWarning>
-        <Providers>
-          <SmoothScrollProvider>{children}</SmoothScrollProvider>
-        </Providers>
-      </body>
-    </html>
+    <>
+      <LangSync lang={lang} />
+      <Providers>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </Providers>
+    </>
   );
 }

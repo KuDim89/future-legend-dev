@@ -1,73 +1,85 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import Masonry from 'react-masonry-css';
 import Lightbox from 'yet-another-react-lightbox';
 import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/styles.css';
-import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
+import { Button } from '@/components/ui/Button';
 import type { GalleryEntry } from '@/content/gallery';
 import type { Dictionary } from '@/lib/getDictionary';
 import styles from './GallerySection.module.scss';
+
+const INITIAL = 6; // 2 rows on desktop (3 cols)
+const SCROLL_AT = 12; // scroll kicks in when > 4 rows visible
 
 interface Props {
   photos: GalleryEntry[];
   dict: Dictionary['gallery'];
 }
 
-const breakpointCols = { default: 3, 768: 2, 480: 1 };
-
 export function GallerySection({ photos, dict }: Props) {
   const containerRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const [showAll, setShowAll] = useState(false);
 
   useScrollReveal(containerRef);
 
   const slides = photos.map((p) => ({ src: p.src, alt: p.alt }));
+  const visiblePhotos = showAll ? photos : photos.slice(0, INITIAL);
+  const showButton = !showAll && photos.length > INITIAL;
+  const useScroll = showAll && photos.length > SCROLL_AT;
 
   return (
     <section id="gallery" ref={containerRef} className={styles.section}>
-      <h2 className={`${styles.sectionTitle} reveal-item`}>{dict.title}</h2>
-      <p className={`${styles.intro} reveal-item`}>
-        {dict.intro}
-      </p>
+      <div className={styles.inner}>
 
-      {photos.length === 0 ? (
-        <p className={styles.intro}>{dict.empty}</p>
-      ) : (
-        <Masonry
-          breakpointCols={breakpointCols}
-          className="masonry-grid"
-          columnClassName="masonry-grid_column"
-        >
-          {photos.map((photo, index) => (
-            <motion.button
-              key={photo.src}
-              className={`${styles.photoWrapper} reveal-item`}
-              onClick={() => setLightboxIndex(index)}
-              aria-label={dict.openPhotoAriaLabel}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-                className={styles.photo}
-              />
-              <motion.div
-                className={styles.photoOverlay}
-                aria-hidden="true"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 0.5 }}
-                transition={{ duration: 0.2 }}
-              />
-            </motion.button>
-          ))}
-        </Masonry>
-      )}
+        <div className={`${styles.sectionHead} reveal-item`}>
+          <h2 className={styles.sectionTitle}>{dict.title}</h2>
+          <p className={styles.sectionSub}>{dict.intro}</p>
+        </div>
+
+        {photos.length === 0 ? (
+          <p className={`${styles.empty} reveal-item`}>{dict.empty}</p>
+        ) : (
+          <>
+            <div ref={gridRef} className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`}>
+              <div className={styles.masonry}>
+                {visiblePhotos.map((photo, index) => (
+                  <button
+                    key={index}
+                    className={styles.photo}
+                    onClick={() => setLightboxIndex(index)}
+                    aria-label={dict.openPhotoAriaLabel}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className={styles.img}
+                    />
+                    <span className={styles.tag} aria-hidden="true">
+                      {dict.photoTag}
+                    </span>
+                    <span className={styles.overlay} aria-hidden="true" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {showButton && (
+              <div className={styles.showMoreWrap}>
+                <Button onClick={() => { setShowAll(true); gridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}>
+                  {dict.showMore}
+                </Button>
+              </div>
+            )}
+          </>
+        )}
+
+      </div>
 
       <Lightbox
         open={lightboxIndex >= 0}

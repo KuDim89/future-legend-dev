@@ -19,10 +19,9 @@ export function useScrollReveal<T extends HTMLElement>(
 ): void {
   useGSAP(
     () => {
-      const prefersReduced = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
-      if (prefersReduced) return;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (prefersReduced || isMobile) return;
 
       gsap.from('.reveal-item', {
         opacity: 0,

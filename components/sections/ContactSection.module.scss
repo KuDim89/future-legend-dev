@@ -1,74 +1,185 @@
 // ContactSection.module.scss
-// Mixins auto-injected via sassOptions.additionalData — no @use needed
-// Tokens: use var(--token) — NOT $scss-variable
 
 .section {
-  padding: var(--space-16) var(--space-4);
+  position: relative;
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--color-border);
+}
 
-  @include respond-to('lg') {
-    padding: var(--space-24) var(--space-8);
-  }
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+
+  @include respond-to('sm') { padding: 0 var(--space-6); }
+  @include respond-to('md') { padding: 0 var(--space-10); }
+  @include respond-to('lg') { padding: 0 var(--space-12); }
+}
+
+// ─── Section header ───────────────────────────────────────────────────────────
+
+.sectionHead {
+  margin-bottom: var(--space-16);
+
+  @include respond-to('md') { margin-bottom: var(--space-24); }
 }
 
 .sectionTitle {
   font-family: var(--font-heading);
-  font-size: var(--text-3xl);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-section-title);
   color: var(--color-text);
-  line-height: 1.1;
-  margin-bottom: var(--space-12);
+  margin: 0;
+}
 
-  @include respond-to('md') {
-    font-size: var(--text-4xl);
-  }
+.sectionSub {
+  margin-top: var(--space-4);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  line-height: 1.35;
+  color: var(--color-text);
+  opacity: 0.85;
+  max-width: 520px;
+}
 
-  &::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    background-color: var(--color-accent);
-    margin-top: var(--space-2);
+// ─── Two-column grid ──────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+
+  @include respond-to('lg') {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
   }
 }
 
-.intro {
-  font-size: var(--text-base);
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+// ─── Headline ─────────────────────────────────────────────────────────────────
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-10);
+}
+
+.headlineItalic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+}
+
+// ─── Meta rows ────────────────────────────────────────────────────────────────
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.metaRow {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-4);
+  font-size: 13px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.metaKey {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
-  line-height: 1.5;
-  margin-bottom: var(--space-12);
+  padding-top: 3px;
 }
+
+.metaVal {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+}
+
+// ─── Form ─────────────────────────────────────────────────────────────────────
 
 .form {
-  max-width: 640px;
-  margin: 0 auto;
-  position: relative; // required for honeypot absolute positioning
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  gap: 6px;
 }
 
 .label {
-  font-family: var(--font-body);
-  font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.input,
+.textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    font-family: var(--font-heading);
+    font-style: normal;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+    letter-spacing: 0.02em;
+  }
+
+  &:focus {
+    border-bottom-color: var(--color-accent);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.textarea {
+  resize: none;
+  min-height: 100px;
 }
 
 .inputError {
-  border-color: #e53e3e;
-
-  &:focus {
-    outline-color: #e53e3e;
-    border-color: #e53e3e;
-  }
+  border-bottom-color: #e53e3e;
 }
 
 .fieldError {
@@ -76,34 +187,19 @@
   color: #e53e3e;
 }
 
-.input,
-.textarea {
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: 400;
-  color: var(--color-text);
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: var(--space-4);
-  width: 100%;
-  transition: border-color 0.15s ease; // CSS only — Framer Motion does NOT own this
+// ─── Submit ───────────────────────────────────────────────────────────────────
 
-  &::placeholder {
-    color: var(--color-text-muted);
-  }
+// ─── Submit button (layout-only override — base styles in Button.module.scss) ─
 
-  &:focus {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    border-color: var(--color-accent);
-  }
+.submitBtn {
+  margin-top: 12px;
+  align-self: flex-start;
+  padding: 18px 32px;
+  height: auto;
+  letter-spacing: 0.22em;
 }
 
-.textarea {
-  min-height: 140px;
-  resize: vertical;
-}
+// ─── Honeypot ─────────────────────────────────────────────────────────────────
 
 .honeypot {
   position: absolute;
@@ -112,75 +208,23 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
-  // NOT display:none — bots skip display:none fields
 }
 
-.submitBtn {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-heading);
-  font-size: var(--text-base);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: var(--color-accent);
-  border: none;
-  border-radius: 4px;
-  padding: var(--space-4) var(--space-8);
-  width: 100%;
-  cursor: pointer;
-  transition: background 0.15s ease; // CSS only — NOT Framer Motion
-
-  &:hover:not(:disabled) {
-    background: var(--color-accent-hover);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-}
-
-.spinner {
-  animation: spin 1s linear infinite; // CSS animation — NOT Framer Motion
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// ─── Error / Success ──────────────────────────────────────────────────────────
 
 .errorMsg {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  margin-top: var(--space-4);
-
-  a {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
+  margin-top: var(--space-2);
 }
 
 .successMessage {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
   padding: var(--space-12) 0;
 }
 
 .successHeading {
   font-family: var(--font-heading);
-  font-size: var(--text-base);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-text);
