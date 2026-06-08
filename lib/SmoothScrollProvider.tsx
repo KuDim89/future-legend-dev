@@ -28,7 +28,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     <ReactLenis
       root
       ref={lenisRef}
-      options={{ lerp: 0.1, duration: 1.2, syncTouch: true, autoRaf: false }}
+      options={{ lerp: 0.1, duration: 1.2, syncTouch: false, autoRaf: false }}
     >
       {children}
     </ReactLenis>
