@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import { useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 import { useScrollReveal } from '@/lib/animations/useScrollReveal';
