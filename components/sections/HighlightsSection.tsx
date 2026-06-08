@@ -84,7 +84,7 @@ export function HighlightsSection({ videos, dict }: Props) {
           <p className={styles.sectionSub}>{dict.sub}</p>
         </div>
 
-        <div ref={gridRef} className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`}>
+        <div ref={gridRef} className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`} data-lenis-prevent={useScroll || undefined}>
           {/* Featured block: first video large-left + up to 4 right in 2×2 */}
           <div className={styles.heroGrid}>
             {heroVideos.map((video, i) => (

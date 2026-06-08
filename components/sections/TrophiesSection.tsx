@@ -66,6 +66,7 @@ export function TrophiesSection({ trophies, dict }: Props) {
         <div
           ref={gridRef}
           className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`}
+          data-lenis-prevent={useScroll || undefined}
         >
           <div className={styles.grid}>
             {slots.map((slot, i) => {

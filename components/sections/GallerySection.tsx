@@ -45,7 +45,7 @@ export function GallerySection({ photos, dict }: Props) {
           <p className={`${styles.empty} reveal-item`}>{dict.empty}</p>
         ) : (
           <>
-            <div ref={gridRef} className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`}>
+            <div ref={gridRef} className={`${styles.gridWrap} ${useScroll ? styles.scrollable : ''} reveal-item`} data-lenis-prevent={useScroll || undefined}>
               <div className={styles.masonry}>
                 {visiblePhotos.map((photo, index) => (
                   <button
